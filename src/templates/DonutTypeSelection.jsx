@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import 'styled-components/macro'
-import tw from 'twin.macro'
+import tw, { css, theme } from 'twin.macro'
 import { DonutTypes } from 'assets'
 import { svgSelector } from 'helpers'
 
@@ -45,6 +45,12 @@ const styles = {
     sm:w-24 //desktop
     rounded rounded-full
     // bg-green-100
+    `,
+
+    css`
+    svg path.st5 { //cruller_base.svg inner circle fill color
+      fill: ${theme`colors.background`};
+    };
     `,
   ],
 }
