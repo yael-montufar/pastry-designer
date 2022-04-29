@@ -6,6 +6,7 @@ import {
   DonutGlazingSelection,
   DonutToppingSelection,
 } from 'templates'
+import { Button } from 'components'
 
 function App() {
   return (
@@ -45,11 +46,15 @@ function App() {
 
 
       <div css={styles.footerGroup}>
-        <section css={styles.buttonContainer({ left: true })}>Reset</section>
+        <section css={styles.buttonContainer({ left: true })}>
+          <Button label='start over' variant='action' fill='transparent' />
+        </section>
 
         <section css={styles.copy({ layout: 'desktop' })}>Copy</section>
 
-        <section css={styles.buttonContainer({ right: true })}>Share</section>
+        <section css={styles.buttonContainer({ right: true })}>
+          <Button label='all done?' variant='action' fill='transparent' />
+        </section>
       </div>
     </div>
   );
@@ -162,7 +167,8 @@ const styles = {
   ],
   buttonContainer: ({ left, right }) => [
     tw`
-    flex-grow
+    flex flex-grow justify-center items-center
+    p-2
     bg-red-700
     `,
 
