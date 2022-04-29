@@ -1,7 +1,8 @@
 import 'styled-components/macro'
 import tw, { css } from "twin.macro";
 import {
-  DonutTypeSelection
+  DonutTypeSelection,
+  DonutFlavorSelection,
 } from 'templates'
 
 function App() {
@@ -12,7 +13,9 @@ function App() {
       </section>
 
 
-      <section css={styles.donutFlavorSelection({ layout: 'mobile' })}>Flavor</section>
+      <section css={styles.donutFlavorSelection({ layout: 'mobile' })}>
+        <DonutFlavorSelection />
+      </section>
 
 
       <section css={styles.output({ layout: 'mobile' })}>Output</section>
@@ -27,7 +30,9 @@ function App() {
       </div>
 
 
-      <section css={styles.donutFlavorSelection({ layout: 'desktop' })}>Flavor</section>
+      <section css={styles.donutFlavorSelection({ layout: 'desktop' })}>
+        <DonutFlavorSelection />
+      </section>
 
 
       <section css={styles.copy({ layout: 'mobile' })}>Copy</section>
@@ -57,13 +62,14 @@ const styles = {
   donutTypeSelection: () => [
     tw`
     w-full h-auto
-    p-4
+    p-2
     bg-red-100
     `,
   ],
   donutFlavorSelection: ({ layout }) => [
     tw`
-    w-full h-20
+    w-full
+    p-2
     bg-red-200
     `,
 
