@@ -150,8 +150,12 @@ const styles = {
   ],
   copy: ({ layout }) => [
     tw`
-    w-full    h-20 //mobile
-    sm:w-8/12 sm:h-full //desktop
+    w-full //mobile
+    sm:w-8/12 //desktop
+    flex justify-center items-center
+    p-2
+    uppercase
+
     bg-red-600
     `,
 
