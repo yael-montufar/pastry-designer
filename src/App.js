@@ -4,6 +4,7 @@ import {
   DonutTypeSelection,
   DonutFlavorSelection,
   DonutGlazingSelection,
+  DonutToppingSelection,
 } from 'templates'
 
 function App() {
@@ -29,7 +30,9 @@ function App() {
 
         <section css={styles.output({ layout: 'desktop' })}>Output</section>
 
-        <section css={styles.donutToppingSelection}>Topping</section>
+        <section css={styles.donutToppingSelection}>
+          <DonutToppingSelection />
+        </section>
       </div>
 
 
@@ -97,7 +100,8 @@ const styles = {
   ],
   output: ({ layout }) => [
     tw`
-    w-full
+    w-full //mobile
+    sm:w-1/2 //desktop
     bg-red-300
     `,
 
@@ -118,14 +122,17 @@ const styles = {
   ],
   donutGlazingSelection: () => [
     tw`
-    w-full h-auto
+    w-full h-auto //mobile
+    sm:w-1/4 //desktop
     p-2
     bg-red-400
     `,
   ],
   donutToppingSelection: () => [
     tw`
-    w-full h-24
+    w-full h-auto //mobile
+    sm:w-1/4 //desktop
+    p-2
     bg-red-500
     `,
   ],
