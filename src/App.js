@@ -1,28 +1,33 @@
 import 'styled-components/macro'
 import tw, { css } from "twin.macro";
+import {
+  DonutTypeSelection
+} from 'templates'
 
 function App() {
   return (
     <div css={styles.root}>
-      <section css={styles.donutTypeSelector}>Type</section>
+      <section css={styles.donutTypeSelection}>
+        <DonutTypeSelection />
+      </section>
 
 
-      <section css={styles.donutFlavorSelector({ layout: 'mobile' })}>Flavor</section>
+      <section css={styles.donutFlavorSelection({ layout: 'mobile' })}>Flavor</section>
 
 
       <section css={styles.output({ layout: 'mobile' })}>Output</section>
 
 
       <div css={styles.bodyGroup()}>
-        <section css={styles.donutGlazingSelector}>Glazing</section>
+        <section css={styles.donutGlazingSelection}>Glazing</section>
 
         <section css={styles.output({ layout: 'desktop' })}>Output</section>
 
-        <section css={styles.donutToppingSelector}>Topping</section>
+        <section css={styles.donutToppingSelection}>Topping</section>
       </div>
 
 
-      <section css={styles.donutFlavorSelector({ layout: 'desktop' })}>Flavor</section>
+      <section css={styles.donutFlavorSelection({ layout: 'desktop' })}>Flavor</section>
 
 
       <section css={styles.copy({ layout: 'mobile' })}>Copy</section>
@@ -49,13 +54,14 @@ const styles = {
     bg-gray-700
     `
   ],
-  donutTypeSelector: () => [
+  donutTypeSelection: () => [
     tw`
-    w-full h-24
+    w-full h-auto
+    p-4
     bg-red-100
     `,
   ],
-  donutFlavorSelector: ({ layout }) => [
+  donutFlavorSelection: ({ layout }) => [
     tw`
     w-full h-20
     bg-red-200
@@ -101,13 +107,13 @@ const styles = {
     css`
     `,
   ],
-  donutGlazingSelector: () => [
+  donutGlazingSelection: () => [
     tw`
     w-full h-24
     bg-red-400
     `,
   ],
-  donutToppingSelector: () => [
+  donutToppingSelection: () => [
     tw`
     w-full h-24
     bg-red-500
