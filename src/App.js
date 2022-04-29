@@ -1,12 +1,12 @@
 import 'styled-components/macro'
-import tw, { css } from "twin.macro";
+import tw from "twin.macro";
 import {
   DonutTypeSelection,
   DonutFlavorSelection,
   DonutGlazingSelection,
   DonutToppingSelection,
 } from 'templates'
-import { Button } from 'components'
+import { Button, Canvas } from 'components'
 
 function App() {
   return (
@@ -21,7 +21,9 @@ function App() {
       </section>
 
 
-      <section css={styles.output({ layout: 'mobile' })}>Output</section>
+      <section css={styles.output({ layout: 'mobile' })}>
+        <Canvas />
+      </section >
 
 
       <div css={styles.bodyGroup()}>
@@ -29,12 +31,14 @@ function App() {
           <DonutGlazingSelection />
         </section>
 
-        <section css={styles.output({ layout: 'desktop' })}>Output</section>
+        <section css={styles.output({ layout: 'desktop' })}>
+          <Canvas />
+        </section >
 
         <section css={styles.donutToppingSelection}>
           <DonutToppingSelection />
         </section>
-      </div>
+      </div >
 
 
       <section css={styles.donutFlavorSelection({ layout: 'desktop' })}>
@@ -56,7 +60,7 @@ function App() {
           <Button label='all done?' variant='action' fill='transparent' />
         </section>
       </div>
-    </div>
+    </div >
   );
 }
 
@@ -105,13 +109,15 @@ const styles = {
   ],
   output: ({ layout }) => [
     tw`
+    justify-center items-center
     w-full //mobile
     sm:w-1/2 //desktop
     bg-red-300
+    p-2 py-4
+    xl:p-16 lg:p-12 md:p-10 sm:p-8
     `,
 
     layout === 'mobile' && tw`
-    h-96
     flex //mobile
     sm:hidden //desktop
     `,
@@ -120,10 +126,6 @@ const styles = {
     hidden //mobile
     sm:flex //desktop
     `
-  ],
-  canvas: () => [
-    css`
-    `,
   ],
   donutGlazingSelection: () => [
     tw`

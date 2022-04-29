@@ -36,6 +36,7 @@ export default DonutGlazingSelection
 const styles = {
   root: () => [
     tw`
+    flex justify-center items-center
     w-full h-full
     bg-gray-200
     `
@@ -43,7 +44,7 @@ const styles = {
   grid: () => [
     tw`
     flex flex-row //mobile
-    sm:grid sm:grid-cols-2 sm:gap-4 //desktop
+    sm:grid sm:grid-cols-2 sm:gap-x-4 sm:gap-y-16 //desktop
 
     space-x-2 //mobile
     sm:space-x-0 //desktop
