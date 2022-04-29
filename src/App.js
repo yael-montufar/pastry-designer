@@ -3,6 +3,7 @@ import tw, { css } from "twin.macro";
 import {
   DonutTypeSelection,
   DonutFlavorSelection,
+  DonutGlazingSelection,
 } from 'templates'
 
 function App() {
@@ -22,7 +23,9 @@ function App() {
 
 
       <div css={styles.bodyGroup()}>
-        <section css={styles.donutGlazingSelection}>Glazing</section>
+        <section css={styles.donutGlazingSelection}>
+          <DonutGlazingSelection />
+        </section>
 
         <section css={styles.output({ layout: 'desktop' })}>Output</section>
 
@@ -68,7 +71,7 @@ const styles = {
   ],
   donutFlavorSelection: ({ layout }) => [
     tw`
-    w-full
+    w-full h-auto
     p-2
     bg-red-200
     `,
@@ -115,7 +118,8 @@ const styles = {
   ],
   donutGlazingSelection: () => [
     tw`
-    w-full h-24
+    w-full h-auto
+    p-2
     bg-red-400
     `,
   ],
