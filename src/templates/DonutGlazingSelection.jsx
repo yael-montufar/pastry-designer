@@ -2,7 +2,7 @@ import React from 'react'
 import 'styled-components/macro'
 import tw, { css } from 'twin.macro'
 import { DonutGlazingButtons } from 'assets'
-import { svgSelector } from 'helpers'
+import { svgSelector, handleAddons } from 'helpers'
 
 const GLAZINGS = [
   "PlainGlaze",
@@ -13,7 +13,7 @@ const GLAZINGS = [
   "PistachioGlaze",
 ]
 
-const DonutGlazingSelection = ({ setState, handleAddons }) => {
+const DonutGlazingSelection = ({ setState }) => {
   return (
     <div css={styles.root}>
       <div css={styles.grid()}>

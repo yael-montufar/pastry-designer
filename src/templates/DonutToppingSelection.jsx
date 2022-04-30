@@ -2,7 +2,7 @@ import React from 'react'
 import 'styled-components/macro'
 import tw, { css } from 'twin.macro'
 import { DonutToppingButtons } from 'assets'
-import { svgSelector } from 'helpers'
+import { svgSelector, handleAddons } from 'helpers'
 
 const TOPPINGS = [
   "PowderedSugarTopping",
@@ -13,7 +13,7 @@ const TOPPINGS = [
   "CerealTopping",
 ]
 
-const DonutToppingSelection = ({ setState, handleAddons }) => {
+const DonutToppingSelection = ({ setState }) => {
   return (
     <div css={styles.root}>
       <div css={styles.grid()}>

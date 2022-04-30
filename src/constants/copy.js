@@ -1,4 +1,4 @@
-export default {
+const copy = {
   "DonutBase": '',
   "CrullerBase": 'cruller',
   "JellyFilledBase": 'jelly_filled',
@@ -18,3 +18,5 @@ export default {
   "HeartCandyTopping": 'heart_candy',
   "CerealTopping": 'cereal',
 }
+
+export default copy

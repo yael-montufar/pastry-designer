@@ -9,6 +9,7 @@ import {
 } from 'templates'
 import { Button, Canvas } from 'components'
 import { COPY } from 'constants'
+import { getStyledCopy } from 'helpers';
 
 function App() {
   const [donutType, setDonutType] = useState('')
@@ -16,24 +17,9 @@ function App() {
   const [donutGlazings, setDonutGlazings] = useState([])
   const [donutToppings, setDonutToppings] = useState([])
 
-  const handleAddons = (setState, addon) => {
-    setState(prev => {
-      let state = [...prev]
-      if (state.includes(addon)) {
-        const index = state.indexOf(addon)
-        state.splice(index, 1) //remove 1 item @ index
-        return state
-      } else {
-        state.push(addon)
-        return state
-      }
-    })
-  }
-
   const [copy, setCopy] = useState('')
-  const WHITE_LIST = [].concat(Object.values(COPY), "donut")
 
-  const getCopy = () => {
+  const generateCopy = () => {
     const addons = [].concat(donutGlazings, donutToppings)
     let copy = ''
     let addonsCopy = ''
@@ -61,35 +47,8 @@ function App() {
     setCopy(copy)
   }
 
-  const getStyledCopy = () => {
-    const styledCopy = copy.split(' ').map((word, index) => {
-      const hasComma = word.indexOf(',') > -1
-      let tmp = word
-
-      if (hasComma) { //hasComma
-        tmp = tmp.replace(/,/g, '')
-      }
-
-      const isHighlighted = WHITE_LIST.includes(tmp)
-
-      if (tmp.indexOf('_') > -1) { //hasUnderscore
-        tmp = tmp.replace(/_/g, ' ')
-      }
-
-      const output = (
-        <span key={`${word}-${index}`} css={tw`inline-block`}>
-          <span css={isHighlighted && tw`text-red-400`}>{tmp}</span>{hasComma && ','}&nbsp;
-        </span>
-      )
-
-      return output
-    })
-
-    return <p css={tw`text-white`}>{styledCopy}</p>
-  }
-
   useEffect(() => {
-    getCopy()
+    generateCopy()
   }, [donutType, donutFlavor, donutGlazings, donutToppings])
 
   return (
@@ -111,7 +70,7 @@ function App() {
 
       <div css={styles.bodyGroup()}>
         <section css={styles.donutGlazingSelection}>
-          <DonutGlazingSelection setState={setDonutGlazings} handleAddons={handleAddons} />
+          <DonutGlazingSelection setState={setDonutGlazings} />
         </section>
 
         <section css={styles.output({ layout: 'desktop' })}>
@@ -119,7 +78,7 @@ function App() {
         </section >
 
         <section css={styles.donutToppingSelection}>
-          <DonutToppingSelection setState={setDonutToppings} handleAddons={handleAddons} />
+          <DonutToppingSelection setState={setDonutToppings} />
         </section>
       </div >
 
@@ -129,7 +88,7 @@ function App() {
       </section>
 
 
-      <section css={styles.copy({ layout: 'mobile' })}>{getStyledCopy()}</section>
+      <section css={styles.copy({ layout: 'mobile' })}>{getStyledCopy(copy)}</section>
 
 
       <div css={styles.footerGroup}>
@@ -137,7 +96,7 @@ function App() {
           <Button label='start over' variant='action' fill='transparent' />
         </section>
 
-        <section css={styles.copy({ layout: 'desktop' })}>{getStyledCopy()}</section>
+        <section css={styles.copy({ layout: 'desktop' })}>{getStyledCopy(copy)}</section>
 
         <section css={styles.buttonContainer({ right: true })}>
           <Button label='all done?' variant='action' fill='transparent' />
