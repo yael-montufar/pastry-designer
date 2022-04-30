@@ -22,7 +22,7 @@ const DonutToppingSelection = ({ setState }) => {
 
           return (
             <div key={`${topping}-${index}`} css={styles.gridItem()} onClick={() => handleAddons(setState, topping)}>
-              <ToppingSelector />
+              <ToppingSelector className="donut-topping-selector" />
             </div>
           )
         })}
@@ -64,9 +64,13 @@ const styles = {
     `,
 
     css`
-    svg {
+    svg.donut-topping-selector {
       width: 100%;
-    }
+
+      .st13 {
+        display: none;
+      };
+    };
     `
   ],
 }

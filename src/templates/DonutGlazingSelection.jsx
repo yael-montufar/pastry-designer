@@ -22,7 +22,7 @@ const DonutGlazingSelection = ({ setState }) => {
 
           return (
             <div key={`${glazing}-${index}`} css={styles.gridItem()} onClick={() => handleAddons(setState, glazing)}>
-              <GlazingSelector />
+              <GlazingSelector className="donut-glazing-selector" />
             </div>
           )
         })}
@@ -64,9 +64,9 @@ const styles = {
     `,
 
     css`
-    svg {
+    svg.donut-glazing-selector {
       width: 100%;
-    }
+    };
     `
   ],
 }

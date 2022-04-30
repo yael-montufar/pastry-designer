@@ -1,11 +1,11 @@
 import React from 'react'
 import 'styled-components/macro'
 import tw, { css } from 'twin.macro'
-import { svgSelector } from 'helpers'
 import { DonutTypes, DonutGlazings, DonutToppings } from 'assets'
+import { svgSelector } from 'helpers'
 import { theme } from 'styles'
 
-const OFFSET_ROTATION = [
+const OFFSET_ROTATION = [ //offset by increments of 60deg
   'transform: translate(70%, -20%) rotate(60deg)',
   'transform: translate(120%, 30%) rotate(120deg)',
   'transform: translate(100%, 100%) rotate(180deg)',

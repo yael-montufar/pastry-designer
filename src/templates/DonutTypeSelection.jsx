@@ -19,7 +19,7 @@ const DonutTypeSelection = ({ setState }) => {
         return (
           <Fragment key={`${donutType}-${index}`}>
             <div css={styles.donutTypeButton} onClick={() => setState(donutType)}>
-              <DonutType />
+              <DonutType className="donut-type-selector" />
             </div>
             {index !== DONUT_TYPES.length - 1 && <span css={tw`mx-4 sm:mx-12`} />}
           </Fragment>
@@ -48,7 +48,7 @@ const styles = {
     `,
 
     css`
-    svg path.st5 { //cruller_base.svg inner circle fill color
+    svg.donut-type-selector path.st5 { //cruller_base.svg inner circle fill color
       fill: ${theme`colors.background`};
     };
     `,
