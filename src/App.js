@@ -42,9 +42,7 @@ function App() {
 
 
       <section css={styles.output({ layout: 'mobile' })}>
-        <Canvas onClick={() => console.log(
-          `Donut Type: ${donutType}`, `Donut Flavor: ${donutFlavor}`, `Donut Glazings: ${donutGlazings}`, `Donut Toppings: ${donutToppings}`
-        )} />
+        <Canvas />
       </section >
 
 
@@ -64,7 +62,7 @@ function App() {
 
 
       <section css={styles.donutFlavorSelection({ layout: 'desktop' })}>
-        <DonutFlavorSelection />
+        <DonutFlavorSelection setState={setDonutFlavor} />
       </section>
 
 
