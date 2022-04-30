@@ -4,6 +4,7 @@ import tw, { css } from 'twin.macro'
 import { DonutTypes, DonutGlazings, DonutToppings } from 'assets'
 import { svgSelector } from 'helpers'
 import { theme } from 'styles'
+import { DonutHole } from 'components'
 
 const OFFSET_ROTATION = [ //offset by increments of 60deg
   'transform: translate(70%, -20%) rotate(60deg)',
@@ -14,15 +15,21 @@ const OFFSET_ROTATION = [ //offset by increments of 60deg
   'transform: translate(0%, 0%) rotate(360deg)',
 ]
 
-const Canvas = ({ donutType, donutFlavor, donutGlazings, donutToppings }) => {
+/** Layering
+ * base (donut-type-output) | z-index: 1
+ * glazing (donut-glazing-output) | z-index: 10 +
+ * topping (donut-topping-output) | z-index: 20 +
+ * DonutHole | z-index: 30
+ */
+const Canvas = (props) => {
+  const { donutType, donutFlavor, donutGlazings, donutToppings } = props
+
   const DonutTypeOutput = svgSelector(DonutTypes, donutType)
 
-  /** Layering
-   * base (donut-type-output) | z-index: 1
-   * glazing (donut-type-glazing) | z-index: 10 +
-   */
   return (
     <div css={styles.canvas}>
+      <DonutHole {...props} />
+
       <div css={styles.donutTypeOutput({ fill: theme.colors.flavors[donutFlavor] })}>
         <DonutTypeOutput className="donut-type-output" />
       </div>
