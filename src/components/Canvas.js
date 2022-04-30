@@ -2,9 +2,9 @@ import React from 'react'
 import 'styled-components/macro'
 import tw, { css } from 'twin.macro'
 
-const Canvas = () => {
+const Canvas = ({ onClick }) => {
   return (
-    <div css={styles.canvas}>
+    <div onClick={onClick} css={styles.canvas}>
     </div>
   )
 }

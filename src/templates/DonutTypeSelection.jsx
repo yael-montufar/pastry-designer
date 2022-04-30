@@ -10,7 +10,7 @@ const DONUT_TYPES = [
   "JellyFilledBase",
 ]
 
-const DonutTypeSelection = () => {
+const DonutTypeSelection = ({ setState }) => {
   return (
     <div css={styles.root}>
       {DONUT_TYPES.map((donutType, index) => {
@@ -18,7 +18,7 @@ const DonutTypeSelection = () => {
 
         return (
           <Fragment key={`${donutType}-${index}`}>
-            <div css={styles.donutTypeButton}>
+            <div css={styles.donutTypeButton} onClick={() => setState(donutType)}>
               <DonutType />
             </div>
             {index !== DONUT_TYPES.length - 1 && <span css={tw`mx-4 sm:mx-12`} />}

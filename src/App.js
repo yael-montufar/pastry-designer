@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import 'styled-components/macro'
 import tw from "twin.macro";
 import {
@@ -9,10 +10,12 @@ import {
 import { Button, Canvas } from 'components'
 
 function App() {
+  const [donutType, setDonutType] = useState('')
+
   return (
     <div css={styles.root}>
       <section css={styles.donutTypeSelection}>
-        <DonutTypeSelection />
+        <DonutTypeSelection setState={setDonutType} />
       </section>
 
 
@@ -22,7 +25,7 @@ function App() {
 
 
       <section css={styles.output({ layout: 'mobile' })}>
-        <Canvas />
+        <Canvas onClick={() => console.log(donutType)} />
       </section >
 
 
