@@ -12,6 +12,21 @@ import { Button, Canvas } from 'components'
 function App() {
   const [donutType, setDonutType] = useState('')
   const [donutFlavor, setDonutFlavor] = useState('')
+  const [donutGlazings, setDonutGlazings] = useState([])
+
+  const handleAddons = (setState, addon) => {
+    setState(prev => {
+      let state = [...prev]
+      if (state.includes(addon)) {
+        const index = state.indexOf(addon)
+        state.splice(index, 1) //remove 1 item @ index
+        return state
+      } else {
+        state.push(addon)
+        return state
+      }
+    })
+  }
 
   return (
     <div css={styles.root}>
@@ -26,13 +41,15 @@ function App() {
 
 
       <section css={styles.output({ layout: 'mobile' })}>
-        <Canvas onClick={() => console.log(`Donut Type: ${donutType}`, `Donut Flavor: ${donutFlavor}`)} />
+        <Canvas onClick={() => console.log(
+          `Donut Type: ${donutType}`, `Donut Flavor: ${donutFlavor}`, `Donut Glazings: ${donutGlazings}`
+        )} />
       </section >
 
 
       <div css={styles.bodyGroup()}>
         <section css={styles.donutGlazingSelection}>
-          <DonutGlazingSelection />
+          <DonutGlazingSelection setState={setDonutGlazings} onClick={handleAddons} />
         </section>
 
         <section css={styles.output({ layout: 'desktop' })}>
