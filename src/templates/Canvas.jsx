@@ -2,9 +2,17 @@ import React from 'react'
 import 'styled-components/macro'
 import tw, { css } from 'twin.macro'
 import { svgSelector } from 'helpers'
-import { DonutTypes, DonutGlazings } from 'assets'
+import { DonutTypes, DonutGlazings, DonutToppings } from 'assets'
 import { theme } from 'styles'
 
+const OFFSET_ROTATION = [
+  'transform: translate(70%, -20%) rotate(60deg)',
+  'transform: translate(120%, 30%) rotate(120deg)',
+  'transform: translate(100%, 100%) rotate(180deg)',
+  'transform: translate(30%, 120%) rotate(240deg)',
+  'transform: translate(-20%, 70%) rotate(300deg)',
+  'transform: translate(0%, 0%) rotate(360deg)',
+]
 
 const Canvas = ({ donutType, donutFlavor, donutGlazings, donutToppings }) => {
   const DonutTypeOutput = svgSelector(DonutTypes, donutType)
@@ -28,6 +36,16 @@ const Canvas = ({ donutType, donutFlavor, donutGlazings, donutToppings }) => {
           </div>
         )
       })}
+
+      {donutToppings.map((donutTopping, index) => {
+        const DonutToppingOutput = svgSelector(DonutToppings, donutTopping)
+
+        return (
+          <div key={`${donutTopping}-${index}`} css={styles.donutToppingOutput({ base: donutType, index })}>
+            <DonutToppingOutput className="donut-topping-output" />
+          </div>
+        )
+      })}
     </div>
   )
 }
@@ -42,6 +60,7 @@ const styles = {
     w-full
     rounded rounded-full
     bg-purple-200
+    overflow-hidden
     `,
 
     css`
@@ -58,12 +77,15 @@ const styles = {
     css`
     z-index: 1;
 
-    svg.donut-type-output #MOD{
-      fill: ${fill} !important; //override style prop if present
-    };
-    svg.donut-type-output path.st5 { //cruller_base.svg inner circle fill color
-      fill: ${theme.colors.background};
-    };
+    svg.donut-type-output {
+      #MOD{
+        fill: ${fill} !important; //override style prop if present
+      };
+
+      path.st5 { //cruller_base.svg inner circle fill color
+        fill: ${theme.colors.background};
+      }
+    }
     `,
   ],
   donutGlazingOutput: ({ base, index }) => [
@@ -79,6 +101,33 @@ const styles = {
 
     svg.donut-glazing-output .st10 { //remove Layer_3 (sprinkles) group - Asset Export Error
       display: none;
+    };
+    `,
+  ],
+  donutToppingOutput: ({ base, index }) => [
+    tw`
+    absolute
+    rounded rounded-full
+    `,
+
+    css`
+    width: ${base === 'CrullerBase' ? '75%' : '80%'}; //adjust fit for cruller
+    z-index: ${20 + index};
+
+    svg.donut-topping-output {
+      .st13 { //remove Layer_3 (sprinkles) group - Asset Export Error
+        display: none;
+      };
+
+      .st3 { //remove bowl (white) fill
+        fill: transparent;
+      };
+
+      #Layer_3 > g:nth-of-type(3), //target rainbow-sprinkles-topping.svg
+      #Layer_3 > g:nth-of-type(2) // target all other toppings
+      {
+        ${OFFSET_ROTATION[index]};
+      };
     };
     `,
   ],
