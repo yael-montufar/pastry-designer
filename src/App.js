@@ -13,6 +13,7 @@ function App() {
   const [donutType, setDonutType] = useState('')
   const [donutFlavor, setDonutFlavor] = useState('')
   const [donutGlazings, setDonutGlazings] = useState([])
+  const [donutToppings, setDonutToppings] = useState([])
 
   const handleAddons = (setState, addon) => {
     setState(prev => {
@@ -42,14 +43,14 @@ function App() {
 
       <section css={styles.output({ layout: 'mobile' })}>
         <Canvas onClick={() => console.log(
-          `Donut Type: ${donutType}`, `Donut Flavor: ${donutFlavor}`, `Donut Glazings: ${donutGlazings}`
+          `Donut Type: ${donutType}`, `Donut Flavor: ${donutFlavor}`, `Donut Glazings: ${donutGlazings}`, `Donut Toppings: ${donutToppings}`
         )} />
       </section >
 
 
       <div css={styles.bodyGroup()}>
         <section css={styles.donutGlazingSelection}>
-          <DonutGlazingSelection setState={setDonutGlazings} onClick={handleAddons} />
+          <DonutGlazingSelection setState={setDonutGlazings} handleAddons={handleAddons} />
         </section>
 
         <section css={styles.output({ layout: 'desktop' })}>
@@ -57,7 +58,7 @@ function App() {
         </section >
 
         <section css={styles.donutToppingSelection}>
-          <DonutToppingSelection />
+          <DonutToppingSelection setState={setDonutToppings} handleAddons={handleAddons} />
         </section>
       </div >
 

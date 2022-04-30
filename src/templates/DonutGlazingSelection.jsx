@@ -13,7 +13,7 @@ const GLAZINGS = [
   "PistachioGlaze",
 ]
 
-const DonutGlazingSelection = ({ setState, onClick }) => {
+const DonutGlazingSelection = ({ setState, handleAddons }) => {
   return (
     <div css={styles.root}>
       <div css={styles.grid()}>
@@ -21,7 +21,7 @@ const DonutGlazingSelection = ({ setState, onClick }) => {
           const GlazingSelector = svgSelector(DonutGlazingButtons, `${glazing}Button`)
 
           return (
-            <div key={`${glazing}-${index}`} css={styles.gridItem()} onClick={() => onClick(setState, glazing)}>
+            <div key={`${glazing}-${index}`} css={styles.gridItem()} onClick={() => handleAddons(setState, glazing)}>
               <GlazingSelector />
             </div>
           )
