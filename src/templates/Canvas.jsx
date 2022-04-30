@@ -9,17 +9,21 @@ import { theme } from 'styles'
 const Canvas = ({ donutType, donutFlavor, donutGlazings, donutToppings }) => {
   const DonutTypeOutput = svgSelector(DonutTypes, donutType)
 
+  /** Layering
+   * base (donut-type-output) | z-index: 1
+   * glazing (donut-type-glazing) | z-index: 10 +
+   */
   return (
     <div css={styles.canvas}>
       <div css={styles.donutTypeOutput({ fill: theme.colors.flavors[donutFlavor] })}>
         <DonutTypeOutput className="donut-type-output" />
       </div>
 
-      {donutGlazings.map((donutGlazing) => {
+      {donutGlazings.map((donutGlazing, index) => {
         const DonutGlazingOutput = svgSelector(DonutGlazings, donutGlazing)
 
         return (
-          <div css={styles.donutGlazingOutput}>
+          <div key={`${donutGlazing}-${index}`} css={styles.donutGlazingOutput({ base: donutType, index })}>
             <DonutGlazingOutput className="donut-glazing-output" />
           </div>
         )
@@ -52,6 +56,8 @@ const styles = {
     `,
 
     css`
+    z-index: 1;
+
     svg.donut-type-output #MOD{
       fill: ${fill} !important; //override style prop if present
     };
@@ -60,14 +66,17 @@ const styles = {
     };
     `,
   ],
-  donutGlazingOutput: () => [
+  donutGlazingOutput: ({ base, index }) => [
     tw`
     absolute
-    w-full
     rounded rounded-full
     `,
 
     css`
+    width: ${base === 'CrullerBase' ? '80%' : '85%'}; //adjust fit for cruller
+    z-index: ${10 + index};
+    transform: scale(${1 - (index * 0.075)});
+
     svg.donut-glazing-output .st10 { //remove Layer_3 (sprinkles) group - Asset Export Error
       display: none;
     };
