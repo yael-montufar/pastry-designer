@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import 'styled-components/macro'
 import tw from "twin.macro";
 import {
@@ -8,6 +8,7 @@ import {
   DonutToppingSelection,
 } from 'templates'
 import { Button, Canvas } from 'components'
+import { COPY } from 'constants'
 
 function App() {
   const [donutType, setDonutType] = useState('')
@@ -28,6 +29,68 @@ function App() {
       }
     })
   }
+
+  const [copy, setCopy] = useState('')
+  const WHITE_LIST = [].concat(Object.values(COPY), "donut")
+
+  const getCopy = () => {
+    const addons = [].concat(donutGlazings, donutToppings)
+    let copy = ''
+    let addonsCopy = ''
+
+    if (addons.length > 0) {
+      addonsCopy = ' with '
+
+      addons.map((addon, index) => {
+        if (index === 0) {
+          addonsCopy = addonsCopy.concat(COPY[addon])
+        } else if (index === addons.length - 1) {
+          addonsCopy = addonsCopy.concat(`, and ${COPY[addon]}`)
+        } else {
+          addonsCopy = addonsCopy.concat(`, ${COPY[addon]}`)
+        }
+      })
+    }
+
+    if (donutType || donutFlavor || addons.length > 0) {
+      copy = `I made a ${donutFlavor && COPY[donutFlavor] + ' '}${donutType && COPY[donutType] + ' '}donut${addonsCopy}`
+    } else {
+      copy = `I haven't started yet!`
+    }
+
+    setCopy(copy)
+  }
+
+  const getStyledCopy = () => {
+    const styledCopy = copy.split(' ').map((word, index) => {
+      const hasComma = word.indexOf(',') > -1
+      let tmp = word
+
+      if (hasComma) { //hasComma
+        tmp = tmp.replace(/,/g, '')
+      }
+
+      const isHighlighted = WHITE_LIST.includes(tmp)
+
+      if (tmp.indexOf('_') > -1) { //hasUnderscore
+        tmp = tmp.replace(/_/g, ' ')
+      }
+
+      const output = (
+        <span key={`${word}-${index}`} css={tw`inline-block`}>
+          <span css={isHighlighted && tw`text-red-400`}>{tmp}</span>{hasComma && ','}&nbsp;
+        </span>
+      )
+
+      return output
+    })
+
+    return <p css={tw`text-white`}>{styledCopy}</p>
+  }
+
+  useEffect(() => {
+    getCopy()
+  }, [donutType, donutFlavor, donutGlazings, donutToppings])
 
   return (
     <div css={styles.root}>
@@ -66,7 +129,7 @@ function App() {
       </section>
 
 
-      <section css={styles.copy({ layout: 'mobile' })}>Copy</section>
+      <section css={styles.copy({ layout: 'mobile' })}>{getStyledCopy()}</section>
 
 
       <div css={styles.footerGroup}>
@@ -74,7 +137,7 @@ function App() {
           <Button label='start over' variant='action' fill='transparent' />
         </section>
 
-        <section css={styles.copy({ layout: 'desktop' })}>Copy</section>
+        <section css={styles.copy({ layout: 'desktop' })}>{getStyledCopy()}</section>
 
         <section css={styles.buttonContainer({ right: true })}>
           <Button label='all done?' variant='action' fill='transparent' />
