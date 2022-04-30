@@ -27,7 +27,7 @@ const Canvas = (props) => {
   const DonutTypeOutput = svgSelector(DonutTypes, donutType)
 
   return (
-    <div css={styles.canvas}>
+    <div css={styles.canvas} className="rotating">
       <DonutHole {...props} />
 
       <div css={styles.donutTypeOutput({ fill: theme.colors.flavors[donutFlavor] })}>
