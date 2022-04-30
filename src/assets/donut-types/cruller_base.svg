@@ -933,7 +933,7 @@
 					c10.9,28.2,44,33.6,52.2,34.5c19.9,22.8,52.8,16.5,60.9,14.6c26.5,14.6,55.3-2.5,62.2-7.1c29.9,4.7,51.1-21.3,56-28
 					c29.7-5.8,40.7-37.5,43.1-45.4c25.9-15.6,25.5-49.2,24.9-57.4C390.4,213.6,378.5,182.2,375.2,174.6z"/>
 			</defs>
-			<use xlink:href="#SVGID_1_"  style="overflow:visible;fill:#F4933B;"/>
+			<use id="MOD" xlink:href="#SVGID_1_"  style="overflow:visible;fill:#F4933B;"/>
 			<clipPath id="SVGID_00000174563850085839088140000004157238593519748781_">
 				<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
 			</clipPath>

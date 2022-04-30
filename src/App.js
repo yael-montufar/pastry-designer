@@ -6,8 +6,9 @@ import {
   DonutFlavorSelection,
   DonutGlazingSelection,
   DonutToppingSelection,
+  Canvas,
 } from 'templates'
-import { Button, Canvas } from 'components'
+import { Button } from 'components'
 import { COPY } from 'constants'
 import { getStyledCopy } from 'helpers';
 
@@ -64,7 +65,7 @@ function App() {
 
 
       <section css={styles.output({ layout: 'mobile' })}>
-        <Canvas />
+        <Canvas donutType={donutType} donutFlavor={donutFlavor} donutGlazings={donutGlazings} donutToppings={donutToppings} />
       </section >
 
 
@@ -74,7 +75,7 @@ function App() {
         </section>
 
         <section css={styles.output({ layout: 'desktop' })}>
-          <Canvas />
+          <Canvas donutType={donutType} donutFlavor={donutFlavor} donutGlazings={donutGlazings} donutToppings={donutToppings} />
         </section >
 
         <section css={styles.donutToppingSelection}>
