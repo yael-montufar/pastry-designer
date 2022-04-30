@@ -121,6 +121,7 @@ const styles = {
 
       .st3 { //remove bowl (white) fill
         fill: transparent;
+        display: none;
       };
 
       #Layer_3 > g:nth-of-type(3), //target rainbow-sprinkles-topping.svg
