@@ -11,6 +11,7 @@ import { Button, Canvas } from 'components'
 
 function App() {
   const [donutType, setDonutType] = useState('')
+  const [donutFlavor, setDonutFlavor] = useState('')
 
   return (
     <div css={styles.root}>
@@ -20,12 +21,12 @@ function App() {
 
 
       <section css={styles.donutFlavorSelection({ layout: 'mobile' })}>
-        <DonutFlavorSelection />
+        <DonutFlavorSelection setState={setDonutFlavor} />
       </section>
 
 
       <section css={styles.output({ layout: 'mobile' })}>
-        <Canvas onClick={() => console.log(donutType)} />
+        <Canvas onClick={() => console.log(`Donut Type: ${donutType}`, `Donut Flavor: ${donutFlavor}`)} />
       </section >
 
 

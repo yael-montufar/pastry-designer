@@ -2,9 +2,9 @@ import React from 'react'
 import 'styled-components/macro'
 import tw, { css } from 'twin.macro'
 
-const Button = ({ label, variant, fill }) => {
+const Button = ({ onClick, label, variant, fill }) => {
   return (
-    <div css={styles.button({ variant, fill })}>{label}</div>
+    <div onClick={onClick} css={styles.button({ variant, fill })}>{label}</div>
   )
 }
 
