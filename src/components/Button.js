@@ -1,10 +1,16 @@
 import React from 'react'
 import 'styled-components/macro'
 import tw, { css } from 'twin.macro'
+import { createRipple } from 'helpers'
 
 const Button = ({ onClick, label, variant, fill }) => {
   return (
-    <div onClick={onClick} css={styles.button({ variant, fill })}>{label}</div>
+    <div css={styles.button({ variant, fill })} className={`text-select-none ${variant === 'flavor' && 'ripple-button'}`}
+      onClick={(event) => {
+        createRipple(event)
+        onClick()
+      }}
+    >{label}</div>
   )
 }
 
@@ -15,14 +21,13 @@ const styles = {
     tw`
     flex justify-center items-center
     h-10
-    w-1/3 //mobile
-    sm:w-32 md:w-40 lg:w-44 xl:w-48//desktop
     uppercase text-white
-    text-sm
+    text-xs sm:text-sm
     rounded rounded-lg
     `,
 
     css`
+    width: 33%;
     background-color: ${fill};
     `,
 

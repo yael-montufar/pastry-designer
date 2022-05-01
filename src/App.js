@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import 'styled-components/macro'
-import tw from "twin.macro";
+import tw, { css } from "twin.macro";
 import {
   DonutTypeSelection,
   DonutFlavorSelection,
@@ -136,10 +136,15 @@ const styles = {
     sm:hidden //desktop
     `,
 
-    layout === 'desktop' && tw`
+    ,
+
+    layout === 'desktop' && css`
+    padding: 0px 25%;
+    ${tw`
     hidden //mobile
     sm:flex //desktop
-    `,
+    `}
+    `
   ],
   bodyGroup: () => [
     tw`
