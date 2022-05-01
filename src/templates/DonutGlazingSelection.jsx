@@ -38,7 +38,8 @@ const styles = {
     tw`
     flex justify-center items-center
     w-full h-full
-    bg-gray-200
+
+    // bg-gray-200
     `
   ],
   grid: () => [

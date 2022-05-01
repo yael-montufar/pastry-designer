@@ -36,7 +36,8 @@ const styles = {
     tw`
     w-full h-full
     flex flex-row justify-center items-center
-    bg-gray-300
+
+    // bg-gray-300
     `
   ],
   donutTypeButton: () => [
@@ -44,6 +45,7 @@ const styles = {
     w-20 //mobile
     sm:w-24 //desktop
     rounded rounded-full
+    
     // bg-green-100
     `,
 

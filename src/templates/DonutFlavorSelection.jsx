@@ -32,7 +32,8 @@ const styles = {
     tw`
     w-full h-full
     flex flex-row justify-center items-center
-    bg-gray-200
+
+    // bg-gray-200
     `
   ],
 }

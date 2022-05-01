@@ -114,21 +114,24 @@ const styles = {
     tw`
     flex flex-col
     w-full min-h-screen
-    bg-gray-700
+    
+    // bg-gray-700
     `
   ],
   donutTypeSelection: () => [
     tw`
     w-full h-auto
     p-2
-    bg-red-100
+
+    // bg-red-100
     `,
   ],
   donutFlavorSelection: ({ layout }) => [
     tw`
     w-full h-auto
     p-2
-    bg-red-200
+
+    // bg-red-200
     `,
 
     layout === 'mobile' && tw`
@@ -153,7 +156,8 @@ const styles = {
     flex-col //mobile
     sm:flex-row //desktop
     w-full
-    bg-blue-100
+
+    // bg-blue-100
     `,
   ],
   output: ({ layout }) => [
@@ -161,9 +165,10 @@ const styles = {
     justify-center items-center
     w-full //mobile
     sm:w-1/2 //desktop
-    bg-red-300
     p-2 py-4
     xl:p-16 lg:p-12 md:p-10 sm:p-8
+
+    // bg-red-300
     `,
 
     layout === 'mobile' && tw`
@@ -181,7 +186,8 @@ const styles = {
     w-full h-auto //mobile
     sm:w-1/4 //desktop
     p-2
-    bg-red-400
+
+    // bg-red-400
     `,
   ],
   donutToppingSelection: () => [
@@ -189,14 +195,16 @@ const styles = {
     w-full h-auto //mobile
     sm:w-1/4 //desktop
     p-2
-    bg-red-500
+
+    // bg-red-500
     `,
   ],
   footerGroup: () => [
     tw`
     w-full h-20
     flex flex-row justify-between
-    bg-blue-100
+
+    // bg-blue-100
     `,
   ],
   copy: ({ layout }) => [
@@ -207,7 +215,7 @@ const styles = {
     p-2
     uppercase
 
-    bg-red-600
+    // bg-red-600
     `,
 
     layout === 'mobile' && tw`
@@ -224,10 +232,19 @@ const styles = {
     tw`
     flex justify-center items-center
     p-2
-    bg-red-700
+
+    // bg-red-700
     `,
 
-    left && tw`bg-red-700 w-1/2 sm:w-auto flex-grow`,
-    right && tw`bg-red-800 w-1/2 sm:w-auto flex-grow`,
+    left && tw`
+    w-1/2 sm:w-auto flex-grow
+
+    // bg-red-700
+    `,
+    right && tw`
+    w-1/2 sm:w-auto flex-grow
+
+    // bg-red-800
+    `,
   ],
 }
