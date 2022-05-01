@@ -67,6 +67,13 @@ const styles = {
     svg.donut-glazing-selector {
       width: 100%;
     };
+
+
+    @media (hover: hover) {
+      &:hover {
+        transform: scale(1.1);
+      };
+    };
     `
   ],
 }

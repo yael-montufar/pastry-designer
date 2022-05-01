@@ -71,6 +71,12 @@ const styles = {
         display: none;
       };
     };
+
+    @media (hover: hover) {
+      &:hover {
+        transform: scale(1.1);
+      };
+    };
     `
   ],
 }
