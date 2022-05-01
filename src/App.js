@@ -8,11 +8,13 @@ import {
   DonutToppingSelection,
   Canvas,
 } from 'templates'
-import { Button } from 'components'
+import { Button, Modal } from 'components'
 import { COPY } from 'constants'
 import { getStyledCopy } from 'helpers';
 
 function App() {
+  const [showModal, setShowModal] = useState(false)
+
   const [donutType, setDonutType] = useState('')
   const [donutFlavor, setDonutFlavor] = useState('')
   const [donutGlazings, setDonutGlazings] = useState([])
@@ -66,6 +68,7 @@ function App() {
 
   return (
     <div css={styles.root}>
+      <Modal showModal={showModal} toggleModal={() => setShowModal(prev => !prev)} />
       <section css={styles.donutTypeSelection}>
         <DonutTypeSelection setState={setDonutType} />
       </section>
@@ -112,7 +115,7 @@ function App() {
         <section css={styles.copy({ layout: 'desktop' })}>{getStyledCopy(copy)}</section>
 
         <section css={styles.buttonContainer({ right: true })}>
-          <Button label='all done?' variant='action' fill='transparent' />
+          <Button label='all done?' variant='action' fill='transparent' onClick={() => setShowModal(prev => !prev)} />
         </section>
       </div>
     </div >
@@ -124,8 +127,10 @@ export default App;
 const styles = {
   root: () => [
     tw`
+    relative
+
     flex flex-col
-    w-full min-h-screen
+    w-full h-full
 
     // bg-gray-700
     `
@@ -175,7 +180,7 @@ const styles = {
   output: ({ layout }) => [
     tw`
     overflow-hidden //FIX issue with .rotating creating an offset between the body and the html/document
-
+    
     justify-center items-center
     w-full //mobile
     sm:w-1/2 //desktop
