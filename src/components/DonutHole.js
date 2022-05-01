@@ -30,7 +30,7 @@ const styles = {
     css`
     z-index: 30;
     aspect-ratio: 1;
-    width: 20%;
+    width: 34%; //donut-hole-ratio approximation
     box-shadow: 0px 0px 4px 8px ${fill};
     `,
 
