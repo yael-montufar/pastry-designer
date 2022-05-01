@@ -139,7 +139,8 @@ const styles = {
     ,
 
     layout === 'desktop' && css`
-    padding: 0px 25%;
+    padding-left: 25%;
+    padding-right: 25%;
     ${tw`
     hidden //mobile
     sm:flex //desktop
@@ -221,12 +222,12 @@ const styles = {
   ],
   buttonContainer: ({ left, right }) => [
     tw`
-    flex flex-grow justify-center items-center
+    flex justify-center items-center
     p-2
     bg-red-700
     `,
 
-    left && tw`bg-red-700`,
-    right && tw`bg-red-800`,
+    left && tw`bg-red-700 w-1/2 sm:w-auto flex-grow`,
+    right && tw`bg-red-800 w-1/2 sm:w-auto flex-grow`,
   ],
 }

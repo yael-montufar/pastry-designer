@@ -5,7 +5,7 @@ import { createRipple } from 'helpers'
 
 const Button = ({ onClick, label, variant, fill }) => {
   return (
-    <div css={styles.button({ variant, fill })} className={`text-select-none ${variant === 'flavor' && 'ripple-button'}`}
+    <div css={styles.button({ variant, fill })} className={`text-select-none ripple-button`}
       onClick={(event) => {
         createRipple(event)
         onClick()
@@ -21,19 +21,28 @@ const styles = {
     tw`
     flex justify-center items-center
     h-10
+    p-4
     uppercase text-white
     text-xs sm:text-sm
     rounded rounded-lg
     `,
 
     css`
-    width: 33%;
     background-color: ${fill};
+    @media (hover: hover) {
+      &:hover {
+        transform: scale(1.05)
+      };
+    };
+
+    white-space: nowrap;
+    `,
+
+    variant === 'flavor' && css`
+    width: 33%;
     `,
 
     variant === 'action' && tw`
-    flex-shrink-0
-    w-32 sm:w-40
     border border-[#c5bf49]
     text-[#c5bf49]
     `,

@@ -1,3 +1,6 @@
+/** source
+ * https://css-tricks.com/how-to-recreate-the-ripple-effect-of-material-design-buttons/
+ */
 import { createGlobalStyle } from 'styled-components'
 
 const RippleStyles = createGlobalStyle`
@@ -6,9 +9,6 @@ const RippleStyles = createGlobalStyle`
     overflow: hidden;
 
     transition: background 400ms;
-    outline: 0;
-    border: 0;
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
 
     .ripple {
       position: absolute;
