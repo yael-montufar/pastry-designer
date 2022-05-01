@@ -41,7 +41,7 @@ const styles = {
     variant === 'flavor' && css`
     width: 33%;
     @media only screen and (min-width: 640px) {
-      width: 20%;
+      // width: 25%;
     };
     `,
 
