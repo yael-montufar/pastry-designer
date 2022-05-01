@@ -162,6 +162,8 @@ const styles = {
   ],
   output: ({ layout }) => [
     tw`
+    overflow-hidden //FIX issue with .rotating creating an offset between the body and the html/document
+
     justify-center items-center
     w-full //mobile
     sm:w-1/2 //desktop
