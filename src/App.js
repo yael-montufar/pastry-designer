@@ -28,6 +28,10 @@ function App() {
     setCopy('')
   }
 
+  const handleSetDefault = () => {
+    setDonutType((prev) => prev === '' ? "DonutBase" : prev)
+  }
+
   const generateCopy = () => {
     const addons = [].concat(donutGlazings, donutToppings)
     let copy = ''
@@ -68,7 +72,7 @@ function App() {
 
 
       <section css={styles.donutFlavorSelection({ layout: 'mobile' })}>
-        <DonutFlavorSelection setState={setDonutFlavor} />
+        <DonutFlavorSelection setState={setDonutFlavor} setDefault={handleSetDefault} />
       </section>
 
 
@@ -79,7 +83,7 @@ function App() {
 
       <div css={styles.bodyGroup()}>
         <section css={styles.donutGlazingSelection}>
-          <DonutGlazingSelection setState={setDonutGlazings} />
+          <DonutGlazingSelection setState={setDonutGlazings} setDefault={handleSetDefault} />
         </section>
 
         <section css={styles.output({ layout: 'desktop' })}>
@@ -87,13 +91,13 @@ function App() {
         </section >
 
         <section css={styles.donutToppingSelection}>
-          <DonutToppingSelection setState={setDonutToppings} />
+          <DonutToppingSelection setState={setDonutToppings} setDefault={handleSetDefault} />
         </section>
       </div >
 
 
       <section css={styles.donutFlavorSelection({ layout: 'desktop' })}>
-        <DonutFlavorSelection setState={setDonutFlavor} />
+        <DonutFlavorSelection setState={setDonutFlavor} setDefault={handleSetDefault} />
       </section>
 
 

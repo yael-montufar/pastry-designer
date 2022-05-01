@@ -10,13 +10,16 @@ const DONUT_FLAVORS = [
   "strawberry",
 ]
 
-const DonutFlavorSelection = ({ setState }) => {
+const DonutFlavorSelection = ({ setState, setDefault }) => {
   return (
     <div css={styles.root}>
       {DONUT_FLAVORS.map((donutFlavor, index) => {
         return (
           <Fragment key={`${donutFlavor}-${index}`}>
-            <Button label={donutFlavor} variant={'flavor'} fill={theme.colors.flavors[donutFlavor]} onClick={() => setState(donutFlavor)} />
+            <Button label={donutFlavor} variant={'flavor'} fill={theme.colors.flavors[donutFlavor]} onClick={() => {
+              setState(donutFlavor)
+              setDefault()
+            }} />
             {index !== DONUT_FLAVORS.length - 1 && <span css={tw`mx-2`} />}
           </Fragment>
         )

@@ -1,5 +1,7 @@
-const handleAddons = (setState, addon) => {
+const handleAddons = (setState, addon, setDefault) => {
   setState(prev => {
+    setDefault()
+
     let state = [...prev]
     if (state.includes(addon)) {
       const index = state.indexOf(addon)

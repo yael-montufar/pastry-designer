@@ -13,7 +13,7 @@ const TOPPINGS = [
   "CerealTopping",
 ]
 
-const DonutToppingSelection = ({ setState }) => {
+const DonutToppingSelection = ({ setState, setDefault }) => {
   return (
     <div css={styles.root}>
       <div css={styles.grid()}>
@@ -21,7 +21,7 @@ const DonutToppingSelection = ({ setState }) => {
           const ToppingSelector = svgSelector(DonutToppingButtons, `${topping}Button`)
 
           return (
-            <div key={`${topping}-${index}`} css={styles.gridItem()} onClick={() => handleAddons(setState, topping)}>
+            <div key={`${topping}-${index}`} css={styles.gridItem()} onClick={() => handleAddons(setState, topping, setDefault)}>
               <ToppingSelector className="donut-topping-selector" />
             </div>
           )
