@@ -28,7 +28,7 @@ const getStyledCopy = (copy) => {
     return output
   })
 
-  return <p css={tw`text-white`}>{styledCopy}</p>
+  return <p css={tw`text-black`}>{styledCopy}</p>
 }
 
 export default getStyledCopy

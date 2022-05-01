@@ -114,7 +114,7 @@ const styles = {
     tw`
     flex flex-col
     w-full min-h-screen
-    
+
     // bg-gray-700
     `
   ],
@@ -201,8 +201,8 @@ const styles = {
   ],
   footerGroup: () => [
     tw`
-    w-full h-20
-    flex flex-row justify-between
+    w-full h-auto
+    flex flex-row justify-between items-start
 
     // bg-blue-100
     `,
@@ -214,6 +214,7 @@ const styles = {
     flex justify-center items-center
     p-2
     uppercase
+    text-center
 
     // bg-red-600
     `,
@@ -230,19 +231,26 @@ const styles = {
   ],
   buttonContainer: ({ left, right }) => [
     tw`
-    flex justify-center items-center
+    flex
     p-2
+    px-8
 
     // bg-red-700
     `,
 
     left && tw`
-    w-1/2 sm:w-auto flex-grow
+    w-1/2
+    sm:w-1/3
+    flex-grow
+    justify-start
 
     // bg-red-700
     `,
     right && tw`
-    w-1/2 sm:w-auto flex-grow
+    w-1/2
+    sm:w-1/3
+    flex-grow
+    justify-end
 
     // bg-red-800
     `,
