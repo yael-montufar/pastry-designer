@@ -20,6 +20,14 @@ function App() {
 
   const [copy, setCopy] = useState('')
 
+  const resetState = () => {
+    setDonutType('')
+    setDonutFlavor('')
+    setDonutGlazings([])
+    setDonutToppings([])
+    setCopy('')
+  }
+
   const generateCopy = () => {
     const addons = [].concat(donutGlazings, donutToppings)
     let copy = ''
@@ -94,7 +102,7 @@ function App() {
 
       <div css={styles.footerGroup}>
         <section css={styles.buttonContainer({ left: true })}>
-          <Button label='start over' variant='action' fill='transparent' />
+          <Button label='start over' variant='action' fill='transparent' onClick={resetState} />
         </section>
 
         <section css={styles.copy({ layout: 'desktop' })}>{getStyledCopy(copy)}</section>
