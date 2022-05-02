@@ -130,7 +130,7 @@ const styles = {
     relative
 
     flex flex-col
-    w-full h-full
+    w-full min-h-screen
 
     // bg-gray-700
     `
