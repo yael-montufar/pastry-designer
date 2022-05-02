@@ -49,5 +49,10 @@ const styles = {
     border border-[#c5bf49]
     text-[#c5bf49]
     `,
+
+    variant === 'modal' && tw`
+    w-full
+    sm:w-1/3
+    `
   ],
 }

@@ -1,12 +1,40 @@
 import 'styled-components/macro'
-import tw, { css } from "twin.macro";
+import tw, { css, theme } from "twin.macro";
+import Button from './Button'
+import save from 'assets/save.png'
 
 const Modal = ({ showModal, toggleModal }) => {
+  const handleSave = () => {
+    console.log("save")
+  }
+
+  const handleShare = (platform) => {
+    console.log(platform)
+  }
+
   return (
     <div css={styles.root({ showModal })}>
       <div css={styles.backrop} onClick={toggleModal} />
-      <div css={styles.modal}></div>
-    </div>
+
+      <div css={styles.modal}>
+        <div css={styles.header}>
+          <span css={tw`capitalize`} className="text-select-none">share</span>
+          <span css={[tw`text-3xl cursor-pointer`]} onClick={toggleModal}>&times;</span>
+        </div>
+
+        <div css={styles.body}>
+          <div css={styles.list}>
+            <div css={styles.listItem} onClick={() => handleSave()}><img src={save} /></div>
+            <div css={styles.listItem} onClick={() => null}></div>
+            <div css={styles.listItem} onClick={() => null}></div>
+          </div>
+        </div>
+
+        <div css={styles.footer}>
+          <Button label={'cancel'} fill={theme`colors.flavors.strawberry`} onClick={toggleModal} variant={'modal'} />
+        </div>
+      </div>
+    </div >
   )
 }
 
@@ -30,9 +58,14 @@ const styles = {
       bg-[#202020a0]
     `
   ],
+
   modal: () => [
+    tw`
+    flex flex-col
+
+    bg-canvas
+    `,
     css`
-    ${tw`bg-white`};
     position: fixed;
 
     @media only screen and (min-width: 640px) { //desktop
@@ -54,5 +87,55 @@ const styles = {
       bottom: env(safe-area-inset-bottom);
     };
     `
+  ],
+
+  header: () => [
+    tw`
+    flex justify-between items-center
+    w-full h-12
+    p-2
+
+    // bg-red-100
+    `
+  ],
+  body: () => [
+    tw`
+    flex flex-grow items-center justify-center
+    w-full
+    px-8
+    sm:px-16
+    
+
+    // bg-red-200
+    `
+  ],
+  footer: () => [
+    tw`
+    flex justify-center items-center
+    w-full
+    p-4
+
+    // bg-red-300
+    `
+  ],
+  list: () => [
+    tw`
+    flex m-auto space-x-4
+    // h-16
+    overflow-x-scroll
+
+    // bg-purple-100
+    `,
+    css`
+    `
+  ],
+  listItem: () => [
+    tw`
+    w-16 h-16
+    p-2
+    rounded-full
+
+    bg-white
+    `,
   ],
 }
