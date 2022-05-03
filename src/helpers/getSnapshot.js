@@ -1,4 +1,5 @@
 import { toPng } from 'html-to-image';
+import { saveAs } from 'file-saver';
 
 const getSnapshot = () => {
   const desktopLayout = document.getElementById('desktop-canvas-layout')
@@ -13,25 +14,7 @@ const getSnapshot = () => {
 
   toPng(canvas)
     .then((dataURL) => {
-      const win = window.open();
-
-      win.document.write(`
-        <iframe
-        src="${dataURL}"
-        frameborder="0"
-        style="
-          border:0;
-          top:0px;
-          left:0px;
-          bottom:0px;
-          right:0px;
-          width:100%;
-          height:100%;
-        "
-        allowfullscreen
-        >
-        </iframe>
-      `)
+      window.saveAs(dataURL, 'my-awesome-donut.png')
     })
     .catch((error) => {
       console.error('oops, something went wrong!', error);
