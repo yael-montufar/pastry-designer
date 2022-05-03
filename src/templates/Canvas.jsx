@@ -6,15 +6,6 @@ import { svgSelector } from 'helpers'
 import { theme } from 'styles'
 import { DonutHole } from 'components'
 
-const OFFSET_ROTATION = [ //offset by increments of 60deg
-  'transform: translate(70%, -20%) rotate(60deg)',
-  'transform: translate(120%, 30%) rotate(120deg)',
-  'transform: translate(100%, 100%) rotate(180deg)',
-  'transform: translate(30%, 120%) rotate(240deg)',
-  'transform: translate(-20%, 70%) rotate(300deg)',
-  'transform: translate(0%, 0%) rotate(360deg)',
-]
-
 /** Layering
  * base (donut-type-output) | z-index: 1
  * glazing (donut-glazing-output) | z-index: 10 +
@@ -124,20 +115,7 @@ const styles = {
     z-index: ${20 + index};
 
     svg.donut-topping-output {
-      .st13 { //remove Layer_3 (sprinkles) group - Asset Export Error
-        display: none;
-      };
-
-      .st3 { //remove bowl (white) fill
-        fill: transparent;
-        display: none;
-      };
-
-      #Layer_3 > g:nth-of-type(3), //target rainbow-sprinkles-topping.svg
-      #Layer_3 > g:nth-of-type(2) // target all other toppings
-      {
-        ${OFFSET_ROTATION[index]};
-      };
+      width: 100%;
     };
     `,
   ],
