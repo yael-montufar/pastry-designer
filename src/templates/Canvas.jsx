@@ -22,7 +22,7 @@ const Canvas = ({ id, ...rest }) => {
     <div css={styles.canvas(isEmpty)} className="rotating" id={id}>
       <DonutHole {...rest} />
 
-      <div css={styles.donutTypeOutput({ fill: theme.colors.flavors[donutFlavor] })}>
+      <div css={styles.donutTypeOutput({ fill: theme.colors.flavors[donutFlavor ? donutFlavor : 'regular'] })}>
         <DonutTypeOutput className="donut-type-output" />
       </div>
 
@@ -78,14 +78,7 @@ const styles = {
     z-index: 1;
 
     svg.donut-type-output {
-      #MOD{
-        fill: ${fill} !important; //override style prop if present
-      };
-
-      path.st5 { //cruller_base.svg inner circle fill color
-        fill: ${theme.colors.background};
-      }
-    }
+      fill: ${fill}
     `,
   ],
   donutGlazingOutput: ({ base, index }) => [

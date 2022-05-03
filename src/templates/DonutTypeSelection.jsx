@@ -50,9 +50,9 @@ const styles = {
     `,
 
     css`
-    svg.donut-type-selector path.st5 { //cruller_base.svg inner circle fill color
-      fill: ${theme`colors.background`};
-    };
+    svg.donut-type-selector {
+      fill: ${theme`colors.flavors.regular`};
+    }
 
     @media (hover: hover) {
       &:hover {
