@@ -79,8 +79,8 @@ function App() {
       </section>
 
 
-      <section css={styles.output({ layout: 'mobile' })}>
-        <Canvas donutType={donutType} donutFlavor={donutFlavor} donutGlazings={donutGlazings} donutToppings={donutToppings} />
+      <section id='mobile-canvas-layout' css={styles.output({ layout: 'mobile' })}>
+        <Canvas id={'mobile-canvas'} donutType={donutType} donutFlavor={donutFlavor} donutGlazings={donutGlazings} donutToppings={donutToppings} />
       </section >
 
 
@@ -89,8 +89,8 @@ function App() {
           <DonutGlazingSelection setState={setDonutGlazings} setDefault={handleSetDefault} />
         </section>
 
-        <section css={styles.output({ layout: 'desktop' })}>
-          <Canvas donutType={donutType} donutFlavor={donutFlavor} donutGlazings={donutGlazings} donutToppings={donutToppings} />
+        <section id='desktop-canvas-layout' css={styles.output({ layout: 'desktop' })}>
+          <Canvas id={'desktop-canvas'} donutType={donutType} donutFlavor={donutFlavor} donutGlazings={donutGlazings} donutToppings={donutToppings} />
         </section >
 
         <section css={styles.donutToppingSelection}>

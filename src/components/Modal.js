@@ -1,17 +1,10 @@
 import 'styled-components/macro'
 import tw, { css, theme } from "twin.macro";
 import Button from './Button'
-import save from 'assets/save.png'
+import DownloadButton from 'assets/download-button.png'
+import { getSnapshot } from 'helpers';
 
 const Modal = ({ showModal, toggleModal }) => {
-  const handleSave = () => {
-    console.log("save")
-  }
-
-  const handleShare = (platform) => {
-    console.log(platform)
-  }
-
   return (
     <div css={styles.root({ showModal })}>
       <div css={styles.backrop} onClick={toggleModal} />
@@ -24,7 +17,7 @@ const Modal = ({ showModal, toggleModal }) => {
 
         <div css={styles.body}>
           <div css={styles.list}>
-            <div css={styles.listItem} onClick={() => handleSave()}><img src={save} /></div>
+            <div css={styles.listItem} onClick={() => getSnapshot()}><img src={DownloadButton} /></div>
             <div css={styles.listItem} onClick={() => null}></div>
             <div css={styles.listItem} onClick={() => null}></div>
           </div>

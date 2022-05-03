@@ -21,15 +21,15 @@ const OFFSET_ROTATION = [ //offset by increments of 60deg
  * topping (donut-topping-output) | z-index: 20 +
  * DonutHole | z-index: 30
  */
-const Canvas = (props) => {
-  const { donutType, donutFlavor, donutGlazings, donutToppings } = props
+const Canvas = ({ id, ...rest }) => {
+  const { donutType, donutFlavor, donutGlazings, donutToppings } = rest
   const isEmpty = !donutType && !donutFlavor && [].concat(donutGlazings, donutToppings).length <= 0
 
   const DonutTypeOutput = svgSelector(DonutTypes, donutType)
 
   return (
-    <div css={styles.canvas(isEmpty)} className="rotating">
-      <DonutHole {...props} />
+    <div css={styles.canvas(isEmpty)} className="rotating" id={id}>
+      <DonutHole {...rest} />
 
       <div css={styles.donutTypeOutput({ fill: theme.colors.flavors[donutFlavor] })}>
         <DonutTypeOutput className="donut-type-output" />
