@@ -70,11 +70,13 @@ function App() {
     <div css={styles.root}>
       <Modal showModal={showModal} toggleModal={() => setShowModal(prev => !prev)} />
       <section css={styles.donutTypeSelection}>
+        <div css={tw`font-Cupcake text-5xl text-center pb-2`}>choose your donut type</div>
         <DonutTypeSelection setState={setDonutType} />
       </section>
 
 
       <section css={styles.donutFlavorSelection({ layout: 'mobile' })}>
+        <div css={tw`font-Cupcake text-5xl text-center pb-2`}>choose your donut flavor</div>
         <DonutFlavorSelection setState={setDonutFlavor} setDefault={handleSetDefault} />
       </section>
 
@@ -86,6 +88,7 @@ function App() {
 
       <div css={styles.bodyGroup()}>
         <section css={styles.donutGlazingSelection}>
+          <div css={tw`font-Cupcake text-5xl text-center pb-2`}>glazes</div>
           <DonutGlazingSelection setState={setDonutGlazings} setDefault={handleSetDefault} />
         </section>
 
@@ -94,12 +97,14 @@ function App() {
         </section >
 
         <section css={styles.donutToppingSelection}>
+          <div css={tw`font-Cupcake text-5xl text-center pb-2`}>toppings</div>
           <DonutToppingSelection setState={setDonutToppings} setDefault={handleSetDefault} />
         </section>
       </div >
 
 
       <section css={styles.donutFlavorSelection({ layout: 'desktop' })}>
+        <div css={tw`font-Cupcake text-5xl text-center pb-2`}>choose your donut flavor</div>
         <DonutFlavorSelection setState={setDonutFlavor} setDefault={handleSetDefault} />
       </section>
 
@@ -137,6 +142,7 @@ const styles = {
   ],
   donutTypeSelection: () => [
     tw`
+    flex flex-col justify-center items-center
     w-full h-auto
     p-2
 
@@ -152,7 +158,7 @@ const styles = {
     `,
 
     layout === 'mobile' && tw`
-    flex //mobile
+    flex flex-col justify-center items-center //mobile
     sm:hidden //desktop
     `,
 
@@ -163,7 +169,7 @@ const styles = {
     padding-right: 25%;
     ${tw`
     hidden //mobile
-    sm:flex //desktop
+    sm:flex sm:flex-col sm:justify-center sm:items-center //desktop
     `}
     `
   ],
@@ -202,6 +208,7 @@ const styles = {
   ],
   donutGlazingSelection: () => [
     tw`
+    flex flex-col justify-center items-center
     w-full h-auto //mobile
     sm:w-1/4 //desktop
     p-2
@@ -211,6 +218,7 @@ const styles = {
   ],
   donutToppingSelection: () => [
     tw`
+    flex flex-col justify-center items-center
     w-full h-auto //mobile
     sm:w-1/4 //desktop
     p-2
