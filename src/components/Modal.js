@@ -2,7 +2,7 @@ import 'styled-components/macro'
 import tw, { css, theme } from "twin.macro";
 import Button from './Button'
 import DownloadButton from 'assets/download-button.png'
-import { getSnapshot, uploadSnapshot } from 'helpers';
+import { downloadSnapshot, uploadSnapshot } from 'helpers';
 
 const Modal = ({ showModal, toggleModal }) => {
   return (
@@ -17,9 +17,7 @@ const Modal = ({ showModal, toggleModal }) => {
 
         <div css={styles.body}>
           <div css={styles.list}>
-            <div css={styles.listItem} onClick={() => getSnapshot()}><img src={DownloadButton} /></div>
-            <div css={styles.listItem} onClick={() => uploadSnapshot()}></div>
-            <div css={styles.listItem} onClick={() => null}></div>
+            <div css={styles.listItem} onClick={() => downloadSnapshot()}><img src={DownloadButton} /></div>
           </div>
         </div>
 

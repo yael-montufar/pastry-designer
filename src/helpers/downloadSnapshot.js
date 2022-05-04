@@ -1,5 +1,6 @@
 import { toPng } from 'html-to-image';
 import { saveAs } from 'file-saver';
+import axios from 'axios'
 
 const getSnapshot = () => {
   const desktopLayout = document.getElementById('desktop-canvas-layout')
@@ -14,6 +15,17 @@ const getSnapshot = () => {
 
   toPng(canvas)
     .then((dataURL) => {
+      const data = new FormData();
+      data.append("file", dataURL);
+      data.append("upload_preset", "pastry-designer")
+
+      axios.post(
+        "https://api.cloudinary.com/v1_1/yaelmontufar/image/upload",
+        data
+      ).then((response) => {
+        console.log(response.data.url)
+      })
+
       window.saveAs(dataURL, 'my-awesome-donut.png')
     })
     .catch((error) => {
