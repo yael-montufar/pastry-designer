@@ -7,10 +7,12 @@ const WHITE_LIST = [].concat(Object.values(COPY), "donut")
 const getStyledCopy = (copy) => {
   const styledCopy = copy.split(' ').map((word, index) => {
     const hasComma = word.indexOf(',') > -1
+    const hasBang = word.indexOf('!') > -1
+
     let tmp = word
 
-    if (hasComma) { //hasComma
-      tmp = tmp.replace(/,/g, '')
+    if (hasComma || hasBang) { //hasComma
+      tmp = tmp.replace(/(,|!)/g, '')
     }
 
     const isHighlighted = WHITE_LIST.includes(tmp)
@@ -21,7 +23,7 @@ const getStyledCopy = (copy) => {
 
     const output = (
       <span key={`${word}-${index}`} css={tw`inline-block`}>
-        <span css={isHighlighted && tw`text-red-400`}>{tmp}</span>{hasComma && ','}&nbsp;
+        <span css={isHighlighted && tw`text-red-400`}>{tmp}</span>{hasComma && ','}{hasBang && '!'}&nbsp;
       </span>
     )
 

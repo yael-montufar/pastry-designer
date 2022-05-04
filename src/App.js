@@ -54,7 +54,7 @@ function App() {
     }
 
     if (donutType || donutFlavor || addons.length > 0) {
-      copy = `I made a ${donutFlavor && COPY[donutFlavor] + ' '}${donutType && COPY[donutType] + ' '}donut${addonsCopy}`
+      copy = `I made a ${donutFlavor && COPY[donutFlavor] + ' '}${donutType && COPY[donutType] + ' '}donut${addonsCopy}!`
     } else {
       copy = `I haven't started yet!`
     }
