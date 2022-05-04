@@ -1,6 +1,7 @@
 import { toPng } from 'html-to-image';
 import { saveAs } from 'file-saver';
 import axios from 'axios'
+import { theme } from 'styles';
 
 const getSnapshot = () => {
   const desktopLayout = document.getElementById('desktop-canvas-layout')
@@ -13,7 +14,7 @@ const getSnapshot = () => {
     canvas = document.getElementById('mobile-canvas')
   }
 
-  toPng(canvas)
+  toPng(canvas, { backgroundColor: theme.colors.background })
     .then((dataURL) => {
       const data = new FormData();
       data.append("file", dataURL);
