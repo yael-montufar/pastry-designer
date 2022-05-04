@@ -71,6 +71,8 @@ const styles = {
       .st13 {
         display: none;
       };
+
+      cursor: pointer !important;
     };
 
     @media (hover: hover) {

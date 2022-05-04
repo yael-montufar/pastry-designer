@@ -65,6 +65,9 @@ const styles = {
 
     css`
     aspect-ratio: 1;
+    svg {
+      cursor: default !important;
+    }
     `,
   ],
   donutTypeOutput: ({ fill }) => [

@@ -67,6 +67,8 @@ const styles = {
     css`
     svg.donut-glazing-selector {
       width: 100%;
+      
+      cursor: pointer !important;
     };
 
 

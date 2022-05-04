@@ -52,6 +52,7 @@ const styles = {
     css`
     svg.donut-type-selector {
       fill: ${theme`colors.flavors.regular`};
+      cursor: pointer !important;
     }
 
     @media (hover: hover) {

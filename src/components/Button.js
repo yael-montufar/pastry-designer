@@ -25,6 +25,8 @@ const styles = {
     uppercase text-white
     text-xs sm:text-sm
     rounded rounded-lg
+    
+    cursor-pointer
     `,
 
     css`

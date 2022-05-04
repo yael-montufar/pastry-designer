@@ -11,7 +11,7 @@ const Modal = ({ showModal, toggleModal }) => {
 
       <div css={styles.modal}>
         <div css={styles.header}>
-          <span css={tw`capitalize`} className="text-select-none">share</span>
+          <span css={tw`capitalize`} className="text-select-none">download</span>
           <span css={[tw`text-3xl cursor-pointer`]} onClick={toggleModal}>&times;</span>
         </div>
 
@@ -111,8 +111,8 @@ const styles = {
   ],
   list: () => [
     tw`
-    flex m-auto space-x-4
-    // h-16
+    flex m-auto space-x-4 justify-center items-center
+    p-2
     overflow-x-scroll
 
     // bg-purple-100
@@ -125,8 +125,17 @@ const styles = {
     w-16 h-16
     p-2
     rounded-full
+    cursor-pointer
 
     bg-white
     `,
+
+    css`
+    @media (hover: hover) {
+      &:hover {
+        transform: scale(1.1);
+      };
+    };
+    `
   ],
 }
