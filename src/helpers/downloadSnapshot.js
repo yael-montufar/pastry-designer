@@ -14,8 +14,19 @@ const getSnapshot = () => {
     canvas = document.getElementById('mobile-canvas')
   }
 
-  toPng(canvas, { backgroundColor: theme.colors.background })
+  let frame = document.createElement("div")
+  frame.className = "frame"
+
+  let canvasClone = canvas.cloneNode(true)
+
+  frame.appendChild(canvasClone)
+
+  document.body.appendChild(frame)
+
+  toPng(frame, { backgroundColor: theme.colors.background })
     .then((dataURL) => {
+      frame.remove()
+
       const data = new FormData();
       data.append("file", dataURL);
       data.append("upload_preset", "pastry-designer")
