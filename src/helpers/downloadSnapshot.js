@@ -3,7 +3,7 @@ import { saveAs } from 'file-saver';
 import axios from 'axios'
 import { theme } from 'styles';
 
-const getSnapshot = () => {
+const downloadSnapshot = () => {
   const desktopLayout = document.getElementById('desktop-canvas-layout')
   const mobileLayout = document.getElementById('mobile-canvas-layout')
   let canvas
@@ -14,18 +14,19 @@ const getSnapshot = () => {
     canvas = document.getElementById('mobile-canvas')
   }
 
-  let frame = document.createElement("div")
-  frame.className = "frame"
+  let modal = document.getElementById("modal")
+  let preview = document.getElementById("preview")
+  let frame = document.getElementById("frame")
+
+  modal.classList.add("hidden")
+  preview.classList.remove("hidden")
 
   let canvasClone = canvas.cloneNode(true)
-
   frame.appendChild(canvasClone)
 
-  document.body.appendChild(frame)
-
-  toPng(frame, { backgroundColor: theme.colors.background })
+  toPng(frame, { backgroundColor: theme.colors.background, })
     .then((dataURL) => {
-      frame.remove()
+      window.saveAs(dataURL, 'my-awesome-donut.png')
 
       const data = new FormData();
       data.append("file", dataURL);
@@ -37,12 +38,10 @@ const getSnapshot = () => {
       ).then((response) => {
         console.log(response.data.url)
       })
-
-      window.saveAs(dataURL, 'my-awesome-donut.png')
     })
     .catch((error) => {
       console.error('oops, something went wrong!', error);
     });
 }
 
-export default getSnapshot
+export default downloadSnapshot

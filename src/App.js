@@ -68,7 +68,7 @@ function App() {
 
   return (
     <div css={styles.root}>
-      <Modal showModal={showModal} toggleModal={() => setShowModal(prev => !prev)} />
+      <Modal showModal={showModal} setShowModal={setShowModal} />
       <section css={styles.donutTypeSelection}>
         <div css={tw`font-Cupcake text-5xl text-center pb-2`}>choose your donut type</div>
         <DonutTypeSelection setState={setDonutType} />

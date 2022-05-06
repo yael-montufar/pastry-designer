@@ -1,18 +1,32 @@
 import 'styled-components/macro'
 import tw, { css, theme } from "twin.macro";
+import { downloadSnapshot } from 'helpers';
 import Button from './Button'
 import DownloadButton from 'assets/download-button.png'
-import { downloadSnapshot, uploadSnapshot } from 'helpers';
+import Frame from 'assets/frame.jpeg'
 
-const Modal = ({ showModal, toggleModal }) => {
+
+const Modal = ({ showModal, setShowModal }) => {
+  const handleClose = () => {
+    setShowModal(prev => !prev)
+
+    const modal = document.getElementById("modal")
+    const preview = document.getElementById("preview")
+    const frame = document.getElementById("frame")
+
+    preview.classList?.add("hidden")
+    modal.classList?.remove("hidden")
+    frame.firstChild?.remove()
+  }
+
   return (
     <div css={styles.root({ showModal })}>
-      <div css={styles.backrop} onClick={toggleModal} />
+      <div css={styles.backrop} onClick={handleClose} />
 
-      <div css={styles.modal}>
+      <div id="modal" css={styles.modal}>
         <div css={styles.header}>
           <span css={tw`capitalize`} className="text-select-none">download</span>
-          <span css={[tw`text-3xl cursor-pointer`]} onClick={toggleModal}>&times;</span>
+          <span css={[tw`text-3xl cursor-pointer`]} onClick={handleClose}>&times;</span>
         </div>
 
         <div css={styles.body}>
@@ -22,8 +36,17 @@ const Modal = ({ showModal, toggleModal }) => {
         </div>
 
         <div css={styles.footer}>
-          <Button label={'cancel'} fill={theme`colors.flavors.strawberry`} onClick={toggleModal} variant={'modal'} />
+          <Button label={'cancel'} fill={theme`colors.flavors.strawberry`} onClick={handleClose} variant={'modal'} />
         </div>
+      </div>
+
+      <div id="preview" className='hidden' css={styles.preview}>
+        <div css={[styles.header, tw`absolute left-0 top-0 flex justify-center items-center h-20`]}>
+          <span css={tw`capitalize font-Cupcake text-3xl`}>I made this</span>
+          <span css={[tw`absolute text-3xl cursor-pointer top-0 right-2`]} onClick={handleClose}>&times;</span>
+        </div>
+
+        <div id="frame" css={styles.frame} />
       </div>
     </div >
   )
@@ -137,5 +160,48 @@ const styles = {
       };
     };
     `
+  ],
+  preview: () => [
+    tw`
+    p-16
+    bg-white
+    `,
+    css`
+    position: fixed;
+
+    @media only screen and (min-width: 640px) { //desktop
+      aspect-ratio: 1;
+      height: 75vh;
+
+      margin: 0;
+
+      left: 50%;
+      top: 50%;
+      transform: translateY(-50%) translateX(-50%);
+    };
+
+    @media only screen and (max-width: 640px) { //mobile
+      aspect-ratio: 1;
+      width: 75%;
+
+      left: 50%;
+      top: 50%;
+      transform: translateY(-50%) translateX(-50%);
+    };
+    `
+  ],
+  frame: () => [
+    css`
+    width: 100%;
+    height: 100%;
+    padding: 22%;
+    
+    border: 1px dashed #ccc;
+
+    background-image: url(${Frame});
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    `,
   ],
 }
