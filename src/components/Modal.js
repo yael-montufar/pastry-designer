@@ -15,7 +15,7 @@ const Modal = ({ showModal, setShowModal }) => {
     const frame = document.getElementById("frame")
 
     preview.classList?.add("hidden")
-    modal.classList?.remove("hidden")
+    modal.classList.remove("hidden")
     frame.firstChild?.remove()
   }
 

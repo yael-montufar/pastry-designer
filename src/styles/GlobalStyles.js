@@ -17,8 +17,7 @@ const CustomStyles = createGlobalStyle`
   }
 
   .hidden {
-    display: none;
-    background-color: red;
+    display: none !important;
   }
 `
 
