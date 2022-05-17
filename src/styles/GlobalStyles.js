@@ -22,7 +22,6 @@ const CustomStyles = createGlobalStyle`
 
   .format-copy {
     position: absolute;
-    left: 0;
     width: 100%;
     padding: 0;
     text-align: center;

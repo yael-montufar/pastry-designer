@@ -46,7 +46,7 @@ const Modal = ({ showModal, setShowModal }) => {
 
       <div id="preview" className='hidden' css={styles.preview}>
         <div css={[styles.header, tw`absolute left-0 top-0 flex justify-center items-center h-20`]}>
-          <span css={tw`capitalize font-Nunito capitalize text-3xl`}>I made this</span>
+          {/* <span css={tw`capitalize font-Nunito capitalize text-3xl`}>I made this</span> */}
           <span css={[tw`absolute text-3xl cursor-pointer top-0 right-2`]} onClick={handleClose}>&times;</span>
         </div>
 
@@ -167,7 +167,7 @@ const styles = {
   ],
   preview: () => [
     tw`
-    p-16
+    p-8
     bg-white
     `,
     css`
@@ -175,7 +175,7 @@ const styles = {
 
     @media only screen and (min-width: 640px) { //desktop
       aspect-ratio: 1;
-      height: 75vh;
+      height: 90vh;
 
       margin: 0;
 
@@ -186,7 +186,7 @@ const styles = {
 
     @media only screen and (max-width: 640px) { //mobile
       aspect-ratio: 1;
-      width: 75%;
+      width: 90%;
 
       left: 50%;
       top: 50%;
@@ -196,6 +196,10 @@ const styles = {
   ],
   frame: () => [
     css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     position: relative;
     width: 100%;
     height: 100%;
@@ -203,7 +207,7 @@ const styles = {
     
     border: 1px dashed #ccc;
 
-    background-image: url(${FrameWEBP});
+    background-image: url(${FrameWEBP}), url(${FrameJPEG});
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
