@@ -1,18 +1,1 @@
-/* @font-face usage |https://css-tricks.com/snippets/css/using-font-face-in-css/ */
-/* @font-face generator |https://transfonter.org/ */
-
-@font-face {
-  font-family: 'cupcake';
-
-  src:  url("../assets/fonts/CupcakeRegularKit/CupcakeRegular.eot"); /* IE9 Compat Modes */
-
-  src:  url("../assets/fonts//CupcakeRegularKit/CupcakeRegular.woff2") format("woff2"), /* Super Modern Browsers */
-        url("../assets/fonts/CupcakeRegularKit/CupcakeRegular.woff") format("woff"), /* Pretty Modern Browsers */
-        url("../assets/fonts/CupcakeRegularKit/CupcakeRegular.ttf") format("truetype"), /* Safari, Android, iOS */
-
-        url("../assets/fonts//CupcakeRegularKit/CupcakeRegular.svg") format("svg"); /* Legacy iOS */
-
-  font-weight: 400;
-  font-style: normal;
-  font-display: fallback;
-}
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');

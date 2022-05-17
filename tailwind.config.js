@@ -7,7 +7,7 @@ module.exports = {
          * '"Font Name"'
          * | https://tailwindcss.com/docs/font-family
          */
-        Cupcake: ['cupcake', "sans-serif"],
+        Nunito: ['Nunito', 'sans-serif'],
         // 'sans': ['"Future History"', ...defaultTheme.fontFamily.sans]
       },
       colors: {

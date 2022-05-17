@@ -7,11 +7,14 @@ const downloadSnapshot = () => {
   const desktopLayout = document.getElementById('desktop-canvas-layout')
   const mobileLayout = document.getElementById('mobile-canvas-layout')
   let canvas
+  let copy
 
   if (desktopLayout.offsetParent) {
     canvas = document.getElementById('desktop-canvas')
+    copy = document.getElementById("desktop-copy")
   } else if (mobileLayout.offsetParent) {
     canvas = document.getElementById('mobile-canvas')
+    copy = document.getElementById("mobile-copy")
   }
 
   let modal = document.getElementById("modal")
@@ -22,7 +25,12 @@ const downloadSnapshot = () => {
   preview.classList.remove("hidden")
 
   let canvasClone = canvas.cloneNode(true)
+  let copyClone = copy.cloneNode(true)
+
+  copyClone.classList.add("format-copy")
+
   frame.appendChild(canvasClone)
+  frame.appendChild(copyClone)
 
   toPng(frame, { backgroundColor: theme.colors.background, })
     .then((dataURL) => {

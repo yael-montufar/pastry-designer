@@ -22,7 +22,7 @@ const getStyledCopy = (copy) => {
     }
 
     const output = (
-      <span key={`${word}-${index}`} css={tw`inline-block`}>
+      <span key={`${word}-${index}`} css={tw`inline-block whitespace-nowrap`}>
         <span css={isHighlighted && tw`text-red-400`}>{tmp}</span>{hasComma && ','}{hasBang && '!'}&nbsp;
       </span>
     )

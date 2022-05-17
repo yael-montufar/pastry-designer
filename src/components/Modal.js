@@ -3,7 +3,8 @@ import tw, { css, theme } from "twin.macro";
 import { downloadSnapshot } from 'helpers';
 import Button from './Button'
 import DownloadButton from 'assets/download-button.png'
-import Frame from 'assets/frame.jpeg'
+import FrameJPEG from 'assets/frame.jpeg'
+import FrameWEBP from 'assets/frame.webp'
 
 
 const Modal = ({ showModal, setShowModal }) => {
@@ -16,7 +17,10 @@ const Modal = ({ showModal, setShowModal }) => {
 
     preview.classList?.add("hidden")
     modal.classList.remove("hidden")
-    frame.firstChild?.remove()
+    // frame.firstChild?.remove()
+    while (frame.firstChild) {
+      frame.removeChild(frame.firstChild);
+    }
   }
 
   return (
@@ -42,7 +46,7 @@ const Modal = ({ showModal, setShowModal }) => {
 
       <div id="preview" className='hidden' css={styles.preview}>
         <div css={[styles.header, tw`absolute left-0 top-0 flex justify-center items-center h-20`]}>
-          <span css={tw`capitalize font-Cupcake text-3xl`}>I made this</span>
+          <span css={tw`capitalize font-Nunito capitalize text-3xl`}>I made this</span>
           <span css={[tw`absolute text-3xl cursor-pointer top-0 right-2`]} onClick={handleClose}>&times;</span>
         </div>
 
@@ -192,13 +196,14 @@ const styles = {
   ],
   frame: () => [
     css`
+    position: relative;
     width: 100%;
     height: 100%;
-    padding: 22%;
+    padding: 16%;
     
     border: 1px dashed #ccc;
 
-    background-image: url(${Frame});
+    background-image: url(${FrameWEBP});
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */

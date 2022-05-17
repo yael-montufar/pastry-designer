@@ -1,7 +1,7 @@
 import 'styled-components/macro'
 import React from 'react'
 import { createGlobalStyle } from 'styled-components'
-import tw, { GlobalStyles as BaseStyles } from 'twin.macro'
+import tw, { theme, GlobalStyles as BaseStyles } from 'twin.macro'
 import { RotatingStyles, RippleStyles } from 'styles'
 
 const CustomStyles = createGlobalStyle`
@@ -18,6 +18,17 @@ const CustomStyles = createGlobalStyle`
 
   .hidden {
     display: none !important;
+  }
+
+  .format-copy {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    text-align: center;
+    font-size: .5rem;
+    bottom: 6%;
+    background-color: ${theme`colors.background` + 'a0'};
   }
 `
 

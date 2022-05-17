@@ -70,13 +70,13 @@ function App() {
     <div css={styles.root}>
       <Modal showModal={showModal} setShowModal={setShowModal} />
       <section css={styles.donutTypeSelection}>
-        <div css={tw`font-Cupcake text-5xl text-center pb-2`}>choose your donut type</div>
+        <div css={tw`font-Nunito capitalize text-4xl text-center pb-2`}>choose your donut type</div>
         <DonutTypeSelection setState={setDonutType} />
       </section>
 
 
       <section css={styles.donutFlavorSelection({ layout: 'mobile' })}>
-        <div css={tw`font-Cupcake text-5xl text-center pb-2`}>choose your donut flavor</div>
+        <div css={tw`font-Nunito capitalize text-4xl text-center pb-2`}>choose your donut flavor</div>
         <DonutFlavorSelection setState={setDonutFlavor} setDefault={handleSetDefault} />
       </section>
 
@@ -88,7 +88,7 @@ function App() {
 
       <div css={styles.bodyGroup()}>
         <section css={styles.donutGlazingSelection}>
-          <div css={tw`font-Cupcake text-5xl text-center pb-2`}>glazes</div>
+          <div css={tw`font-Nunito capitalize text-4xl text-center pb-2`}>glazes</div>
           <DonutGlazingSelection setState={setDonutGlazings} setDefault={handleSetDefault} />
         </section>
 
@@ -97,19 +97,19 @@ function App() {
         </section >
 
         <section css={styles.donutToppingSelection}>
-          <div css={tw`font-Cupcake text-5xl text-center pb-2`}>toppings</div>
+          <div css={tw`font-Nunito capitalize text-4xl text-center pb-2`}>toppings</div>
           <DonutToppingSelection setState={setDonutToppings} setDefault={handleSetDefault} />
         </section>
       </div >
 
 
       <section css={styles.donutFlavorSelection({ layout: 'desktop' })}>
-        <div css={tw`font-Cupcake text-5xl text-center pb-2`}>choose your donut flavor</div>
+        <div css={tw`font-Nunito capitalize text-4xl text-center pb-2`}>choose your donut flavor</div>
         <DonutFlavorSelection setState={setDonutFlavor} setDefault={handleSetDefault} />
       </section>
 
 
-      <section css={styles.copy({ layout: 'mobile' })}>{getStyledCopy(copy)}</section>
+      <section id='mobile-copy' css={styles.copy({ layout: 'mobile' })}>{getStyledCopy(copy)}</section>
 
 
       <div css={styles.footerGroup}>
@@ -117,7 +117,7 @@ function App() {
           <Button label='start over' variant='action' fill='transparent' onClick={resetState} />
         </section>
 
-        <section css={styles.copy({ layout: 'desktop' })}>{getStyledCopy(copy)}</section>
+        <section id='desktop-copy' css={styles.copy({ layout: 'desktop' })}>{getStyledCopy(copy)}</section>
 
         <section css={styles.buttonContainer({ right: true })}>
           <Button label='all done?' variant='action' fill='transparent' onClick={() => setShowModal(prev => !prev)} />
