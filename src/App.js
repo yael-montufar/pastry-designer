@@ -246,6 +246,10 @@ const styles = {
     // bg-red-600
     `,
 
+    css`
+    font-size: 20px;
+    `,
+
     layout === 'mobile' && tw`
     flex //mobile
     sm:hidden //desktop

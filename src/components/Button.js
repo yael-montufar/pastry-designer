@@ -23,7 +23,6 @@ const styles = {
     h-10
     p-4
     uppercase text-white
-    text-xs sm:text-sm
     rounded rounded-lg
     
     cursor-pointer
@@ -41,15 +40,19 @@ const styles = {
     `,
 
     variant === 'flavor' && css`
+    ${tw`text-xs sm:text-sm`}
     width: 33%;
     @media only screen and (min-width: 640px) {
       // width: 25%;
     };
     `,
 
-    variant === 'action' && tw`
-    border border-[#c5bf49]
+    variant === 'action' && css`
+    font-size: 20px;
+    ${tw`
+    border border-solid border-[#c5bf49]
     text-[#c5bf49]
+    `}
     `,
 
     variant === 'modal' && tw`

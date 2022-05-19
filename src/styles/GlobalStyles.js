@@ -22,10 +22,10 @@ const CustomStyles = createGlobalStyle`
 
   .format-copy {
     position: absolute;
-    width: 100%;
+    width: 100% !important;
     padding: 0;
     text-align: center;
-    font-size: .5rem;
+    font-size: 10px !important;
     bottom: 6%;
     background-color: ${theme`colors.background` + 'a0'};
   }
