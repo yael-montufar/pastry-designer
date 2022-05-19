@@ -29,7 +29,7 @@ const Modal = ({ showModal, setShowModal }) => {
 
       <div id="modal" css={styles.modal}>
         <div css={styles.header}>
-          <span css={tw`capitalize`} className="text-select-none">download</span>
+          <span css={tw`capitalize font-Nunito`} className="text-select-none">download your donut</span>
           <span css={[tw`text-3xl cursor-pointer`]} onClick={handleClose}>&times;</span>
         </div>
 
@@ -84,7 +84,7 @@ const styles = {
     bg-canvas
     `,
     css`
-    position: fixed;
+    position: absolute;
 
     @media only screen and (min-width: 640px) { //desktop
       width: 32em;
@@ -171,7 +171,7 @@ const styles = {
     bg-white
     `,
     css`
-    position: fixed;
+    position: absolute;
 
     @media only screen and (min-width: 640px) { //desktop
       aspect-ratio: 1;
