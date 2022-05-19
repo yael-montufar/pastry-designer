@@ -98,11 +98,14 @@ const styles = {
     };
 
     @media only screen and (max-width: 640px) { //mobile
-      width: 100%;
-      height: 30vh;
+      width: 90%;
+      height: auto;
 
-      bottom: 0;
-      bottom: env(safe-area-inset-bottom);
+      margin: 0;
+
+      left: 50%;
+      top: 50%;
+      transform: translateY(-50%) translateX(-50%);
     };
     `
   ],
