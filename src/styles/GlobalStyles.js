@@ -21,6 +21,7 @@ const CustomStyles = createGlobalStyle`
   }
 
   .format-copy {
+    display: flex !important;
     position: absolute;
     width: 100% !important;
     padding: 0;
