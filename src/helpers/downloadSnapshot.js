@@ -3,6 +3,8 @@ import { saveAs } from 'file-saver';
 import axios from 'axios'
 import { theme } from 'styles';
 
+const cloudName = process.env.NODE_ENV === "production" ? "design-emporium-llc" : "yaelmontufar"
+
 const downloadSnapshot = () => {
   const desktopLayout = document.getElementById('desktop-canvas-layout')
   const mobileLayout = document.getElementById('mobile-canvas-layout')
@@ -41,10 +43,10 @@ const downloadSnapshot = () => {
       data.append("upload_preset", "pastry-designer")
 
       axios.post(
-        "https://api.cloudinary.com/v1_1/yaelmontufar/image/upload",
+        `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
         data
       ).then((response) => {
-        console.log(response.data.url)
+        // console.log(response.data.url)
       })
     })
     .catch((error) => {
