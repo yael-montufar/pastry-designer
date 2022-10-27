@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/static/css/main.92b3b63d.css",
+    "main.js": "/static/js/main.41b821f4.js",
+    "static/media/frame.jpeg": "/static/media/frame.df7d0cce40926786ece1.jpeg",
+    "static/media/frame.webp": "/static/media/frame.d1004d634099eba41be2.webp",
+    "static/media/powdered_sugar_topping_button.svg": "/static/media/powdered_sugar_topping_button.4fa1df78c5a48c8eb878259913d66492.svg",
+    "static/media/cereal_topping_button.svg": "/static/media/cereal_topping_button.2c987e86e719019e9a403b7d43a82182.svg",
+    "static/media/strawberry_glaze_button.svg": "/static/media/strawberry_glaze_button.1daa85850960c9469035da02b1835705.svg",
+    "static/media/maple_glaze_button.svg": "/static/media/maple_glaze_button.5f683de30faf564a5e98ba6f89539bbf.svg",
+    "static/media/plain_glaze_button.svg": "/static/media/plain_glaze_button.d37c630bfc52e3baa76b1b79a084af14.svg",
+    "static/media/pistachio_glaze_button.svg": "/static/media/pistachio_glaze_button.fc1a73a7d8898dd5c78450ee29300571.svg",
+    "static/media/blueberry_glaze_button.svg": "/static/media/blueberry_glaze_button.c910b63257fbb30b9478fc4e201403f8.svg",
+    "static/media/chocolate_glaze_button.svg": "/static/media/chocolate_glaze_button.a05495070bc65aaec821caa551e1f3df.svg",
+    "static/media/rainbow_sprinkles_topping_button.svg": "/static/media/rainbow_sprinkles_topping_button.41bc6b8943b624a29309e57fb5798fcd.svg",
+    "static/media/strawberry_sprinkles_topping_button.svg": "/static/media/strawberry_sprinkles_topping_button.8aad3d9c1349276aa57c52b9754223a9.svg",
+    "static/media/chocolate_sprinkles_topping_button.svg": "/static/media/chocolate_sprinkles_topping_button.8b02f1f3051e7902f2e4e29831043321.svg",
+    "static/media/heart_candy_topping_button.svg": "/static/media/heart_candy_topping_button.e8011fbbbc3b07b94a430968cbdbd20f.svg",
+    "static/media/strawberry_glaze.svg": "/static/media/strawberry_glaze.eaa0a04396cb46e44a67a8c1111b72f4.svg",
+    "static/media/blueberry_glaze.svg": "/static/media/blueberry_glaze.5427d9f8854347327ce4ec303490079f.svg",
+    "static/media/chocolate_glaze.svg": "/static/media/chocolate_glaze.1fc785bd50b5a067a01cea45a727e35d.svg",
+    "static/media/maple_glaze.svg": "/static/media/maple_glaze.c32c621be6eeb761294f17a873a8f8cb.svg",
+    "static/media/pistachio_glaze.svg": "/static/media/pistachio_glaze.036f5093deae421d3b39ce2064e29747.svg",
+    "static/media/plain_glaze.svg": "/static/media/plain_glaze.dc6bbf86ec724c0695c1453299893556.svg",
+    "static/media/powdered_sugar_topping.svg": "/static/media/powdered_sugar_topping.a763e1874e5525f62ea672a34c3c4313.svg",
+    "static/media/cereal_topping.svg": "/static/media/cereal_topping.584ddde9c5310ec2a42f71444892c777.svg",
+    "static/media/cruller_base.svg": "/static/media/cruller_base.2eba5fb8168829b945af4ac3b7287556.svg",
+    "static/media/heart_candy_topping.svg": "/static/media/heart_candy_topping.7708898b3f04924002f978c2be4d40cf.svg",
+    "static/media/rainbow_sprinkles_topping.svg": "/static/media/rainbow_sprinkles_topping.d5d17c0417eb69ca62515cebeb39bebc.svg",
+    "static/media/chocolate_sprinkles_topping.svg": "/static/media/chocolate_sprinkles_topping.0db3b79559d0e11d77f3870eee0c38b4.svg",
+    "static/media/strawberry_sprinkles_topping.svg": "/static/media/strawberry_sprinkles_topping.c1f24e86dac2d067ee33e0e8209b8e61.svg",
+    "index.html": "/index.html",
+    "static/media/donut_base.svg": "/static/media/donut_base.825a032fb812aae16f637e03c85b7144.svg",
+    "static/media/jelly_filled_base.svg": "/static/media/jelly_filled_base.1b9936e26520c845dfa2cc134c29524e.svg",
+    "main.41b821f4.js.map": "/static/js/main.41b821f4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.92b3b63d.css",
+    "static/js/main.41b821f4.js"
+  ]
+}
