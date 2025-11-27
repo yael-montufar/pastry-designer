@@ -35,7 +35,7 @@ const Modal = ({ showModal, setShowModal }) => {
 
         <div css={styles.body}>
           <div css={styles.list}>
-            <div css={styles.listItem} onClick={() => downloadSnapshot()}><img src={DownloadButton} /></div>
+            <div css={styles.listItem} onClick={() => downloadSnapshot()}><img src={DownloadButton} alt="Download" /></div>
           </div>
         </div>
 
