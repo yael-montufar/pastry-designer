@@ -1,5 +1,4 @@
 import { toPng } from 'html-to-image';
-import { saveAs } from 'file-saver';
 import axios from 'axios'
 import { theme } from 'styles';
 
