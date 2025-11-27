@@ -1,4 +1,5 @@
 import { toPng } from 'html-to-image';
+import { saveAs } from 'file-saver';
 import axios from 'axios'
 import { theme } from 'styles';
 
@@ -35,7 +36,7 @@ const downloadSnapshot = () => {
 
   toPng(frame, { backgroundColor: theme.colors.background, })
     .then((dataURL) => {
-      window.saveAs(dataURL, 'my-awesome-donut.png')
+      saveAs(dataURL, 'my-awesome-donut.png')
 
       const data = new FormData();
       data.append("file", dataURL);
